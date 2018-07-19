@@ -1,0 +1,47 @@
+\nonstopmode
+\documentclass{article}
+\input{libs.tex}
+\input{colors.tex}
+\usepackage[none]{hyphenat}
+\pgfmathsetmacro{\cardwidth}{17.5}
+\pgfmathsetmacro{\cardheight}{26}
+\pgfmathsetmacro{\offset}{.5}
+\pgfmathsetmacro{\tw}{8cm}
+\pgfmathsetmacro{\squarewidth}{2.5}
+\pgfmathsetmacro{\squareheight}{2.25}
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+\newcommand{\Money}{\includegraphics[height = .4cm]{money} }
+\newcommand{\cardborder}{\draw[black] \shapeCard;
+\draw[ultra thick] (\cardwidth/2, \cardheight/2) rectangle (0, \cardheight);}
+\newcommand{\name}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight-\offset) {\LARGE{#1}};}
+\newcommand{\setup}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.87) {\textbf{Setup:} #1};}
+\newcommand{\unleash}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.67) {\textbf{Unleash:} #1};}
+\newcommand{\difficulty}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.42) {\textbf{Additional Difficulty Rules:} #1};}
+\newcommand{\rules}[1]{\node at (\cardwidth*.7, \cardheight/2+10) ; \node[text width = 7 cm] at (\cardwidth*3/4, \cardheight/2+2) {\textbf{Rules:} #1};}
+\newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}
+\newcommand{\hp}[1]{\textbf{#1} \image{heart}}
+\begin{document}
+\begin{center}
+\pagestyle{empty}\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Fenrix \image{ChannelMan} \hp{60}};
+\setup{Each player gains a Position token of their color. \newline Shuffle all of the claw cards together and place them facedown to form the claw deck. \newline If not playing with four players, draw a card from the claw deck and place it into play.}
+\unleash{The nemesis gains 1 nemesis token.}
+\difficulty{7}
+\rules{At the end of the nemesis turn, if the nemesis has 2 or more nemesis tokens, place a claw into play and the nemesis loses 2 nemesis tokens. Repeat this until the nemesis has less than 2 nemesis tokens. \newline When a claw is discarded from play, place it on the bottom of the claw deck. \newline When the claw deck is empty, the players lose. During any player's main phase, that player may place their Position token on a minion. \newline When a minion dies with a Position token on it, return that token to its respective owner. };
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{The Wanderer \image{PylonMan} \hp{50}};
+\setup{Place the four Dampening Pylons into play with 9 life.}
+\unleash{Any pylon gains 2 life. \newline \Or \newline Any player suffers 2 damage. \newline \Or \newline The Wanderer gains 3 life.}
+\difficulty{6}
+\rules{Reduce all damage that would be dealt to the nemesis by abilities and player cards to 1. \newline During any player's main phase, that player may spend any amount of \Money{} to deal an equal amount of damage to the nemesis.};
+\end{tikzpicture}
+
+
+ \end{center} 
+ \end{document}

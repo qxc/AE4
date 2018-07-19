@@ -1,0 +1,64 @@
+\documentclass[landscape]{article}
+%   Pakete dazuladen
+\input{libs.tex}
+%   Farbdefinitionen laden
+\input{colors.tex}
+
+
+\pgfmathsetmacro{\squarewidth}{2.5}
+\pgfmathsetmacro{\squareheight}{2.25}
+\pgfmathsetmacro{\offset}{.5}
+
+
+\newcommand{\token}[3]{
+    \draw (#1,#2) rectangle (#1+\squarewidth, #2+\squareheight);
+		\node at (#1+\squarewidth/2.75,#2+\squareheight/1.75) {\includegraphics[height = 1.6cm]{#3}};
+		\node at (#1+\squarewidth/8,#2+\squareheight/1.15) {1\includegraphics[height = .35cm]{heart}};
+		\node at (#1+\squarewidth/1.1,#2+\squareheight/2.05) [rotate=270] {#3};
+}
+%input the height of the row
+
+\newcommand{\row}[2]{
+		\token{0}{#1}{#2};
+		\token{\squarewidth}{#1}{#2};
+		\token{2*\squarewidth}{#1}{#2};
+		\token{3*\squarewidth}{#1}{#2};
+		\token{4*\squarewidth}{#1}{#2};
+		\token{5*\squarewidth}{#1}{#2};
+		\token{6*\squarewidth}{#1}{#2};
+		\token{7*\squarewidth}{#1}{#2};
+		\token{8*\squarewidth}{#1}{#2};
+		\token{9*\squarewidth}{#1}{#2};
+		%\token{10*\squarewidth}{#1};
+		%\token{11*\squarewidth}{#1};
+		%\token{12*\squarewidth}{#1};
+		%\token{13*\squarewidth}{#1};
+		%\token{14*\squarewidth}{#1};
+}
+
+\begin{document}
+\begin{center}
+\pagestyle{empty}
+\begin{tikzpicture} 
+
+\end{tikzpicture}
+\begin{tikzpicture} 
+\token{9*\squarewidth}{6*\squareheight}{alarak}
+\token{8*\squarewidth}{6*\squareheight}{Ohat}
+\token{7*\squarewidth}{6*\squareheight}{M'lakeen}
+\token{6*\squarewidth}{6*\squareheight}{Petrefex}
+\token{5*\squarewidth}{6*\squareheight}{Spera}
+\token{4*\squarewidth}{6*\squareheight}{Drakk}
+\token{3*\squarewidth}{6*\squareheight}{Ohezbazera}
+\token{2*\squarewidth}{6*\squareheight}{Wycraff}
+\token{1*\squarewidth}{6*\squareheight}{Vigg}
+\token{0*\squarewidth}{6*\squareheight}{Darago}
+\token{9*\squarewidth}{7*\squareheight}{Undrass}
+\token{8*\squarewidth}{7*\squareheight}{Hagmar}
+\token{7*\squarewidth}{7*\squareheight}{Quaymag}
+\token{6*\squarewidth}{7*\squareheight}{Odrun}
+\token{5*\squarewidth}{7*\squareheight}{Pyrm-Ferra}
+
+\end{tikzpicture}
+\end{center}
+\end{document}

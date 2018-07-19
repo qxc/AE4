@@ -1,0 +1,88 @@
+%   COMMANDS ZUM ZUSAMMENBAUEN DER KARTEN
+%   ---------------------------------------
+
+%   TikZ/PGF Settings für die Karten
+\pgfmathsetmacro{\cardwidth}{6}
+\pgfmathsetmacro{\cardheight}{8.5}
+\pgfmathsetmacro{\imagewidth}{\cardwidth}
+\pgfmathsetmacro{\imageheight}{0.75*\cardheight}
+\pgfmathsetmacro{\stripwidth}{0.7}
+\pgfmathsetmacro{\strippadding}{0.2}
+\pgfmathsetmacro{\textpadding}{0.1}
+\pgfmathsetmacro{\titley}{.94*\cardheight}
+\pgfmathsetmacro{\titlex}{2.3}
+
+
+
+%   Formen der einzelnen Kartenelemente/-bestandteile
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+\def\shapeLeftStripTop{(\strippadding,\cardheight/2+1) rectangle (\strippadding+\stripwidth,\cardheight-\strippadding-\strippadding-1)}
+\def\shapeLeftStripBot{(\strippadding,-0.2) rectangle (\strippadding+\stripwidth,\cardheight/2-3)}
+\def\shapeLeftStripShort{(\strippadding,\cardheight-\strippadding-1) rectangle (\strippadding+\stripwidth,\cardheight+0.2)}
+\def\shapeRightStripShort{(\cardwidth-\stripwidth-\strippadding,\cardheight-\strippadding-1) rectangle (\cardwidth-\strippadding,\cardheight+0.2)}
+\def\shapeTitleArea{(2*\strippadding+\stripwidth,\cardheight-\strippadding) rectangle (\cardwidth-2*\strippadding-\stripwidth,\cardheight-2*\stripwidth)}
+\def\shapeContentArea{(2*\strippadding+\stripwidth,0.5*\cardheight) rectangle (\cardwidth+0.2,-0.2)}
+
+
+%   Stylings für die Elemente definieren
+\tikzset{
+    %   runde Ecken für die Karten
+    cardcorners/.style={
+        rounded corners=0.2cm
+    },
+    %   runde Ecken für die "Fähnchen"
+    elementcorners/.style={
+        rounded corners=0.1cm
+    }
+}
+
+
+\newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
+\newcommand{\Health}{\includegraphics[height = .6cm]{heart}}
+
+%   Rahmen der Karte
+\newcommand{\cardborder}{
+    \draw[lightgray,cardcorners] \shapeCard;
+}
+
+%   Hintergrund der Karte
+\newcommand{\cardbackground}[1]{
+		\clip[cardcorners] \shapeCard;
+		\draw[fill=white] (\cardwidth-.2,\cardheight-.2)--(.2,\cardheight-.2)--(.2,.2)--(\cardwidth-.2,.2)--cycle;
+    %\node at (\cardwidth/2, \cardheight/2) {\includegraphics[height = 9.5cm]{#1}};
+		\node[rotate=90] at (\stripwidth*1.7,\cardheight-4*\stripwidth) {\textbf{\Large{\uppercase{#1}}}};
+}
+
+\newcommand{\cardtitle}[1]{
+    \node[text width=3cm, below right] at (\titlex,\titley) {
+        
+       \shadowtext{\parbox{2.8cm}{\begin{spacing}{1.2}\textbf{\hspace{-.5cm}\uppercase{\Large #1}}\end{spacing}}}
+        
+    };
+}
+\newcommand{\cardcontent}[1]{
+    %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
+		\node[text width=4.4cm, below right] at (\stripwidth*1.1, 0.46*\cardheight) {\textrm{#1}};
+}
+
+\newcommand{\cardimage}[1]{
+	\node at (\cardwidth*.6, \cardheight*.65) {\includegraphics[height = 2.5cm]{#1}};
+}
+
+\newcommand{\cardprice}[1]{
+		%\pgfmathsetmacro{\x}{(2+#1)/12}
+		%\pgfmathsetmacro{\redvalue}{255-(45*\x*\x)}
+		%\pgfmathsetmacro{\greenvalue}{255-(85*\x*\x)}
+		%\pgfmathsetmacro{\bluevalue}{255*(1-\x)*(1-\x)}
+		%\pgfmathsetmacro{\x}{(#1)/10}
+		%\pgfmathsetmacro{\redvalue}{(1-\x)*(1-\x)*0+2*\x*(1-\x)*275+\x*\x*200}
+		%\pgfmathsetmacro{\greenvalue}{(1-\x)*(1-\x)*100+2*\x*(1-\x)*275+\x*\x*100}
+		%\pgfmathsetmacro{\bluevalue}{(1-\x)*(1-\x)*200+2*\x*(1-\x)*275+\x*\x*0}
+		\definecolor{currentcolor}{RGB}{0,0,0}
+    \node at (\stripwidth*1.9,\cardheight-.8*\stripwidth) {\Money};
+		\node at (\stripwidth*1.7,\cardheight-1.2*\stripwidth) {\color{currentcolor} \textbf{\LARGE #1}};
+}
+
+\newcommand{\cardhp}[1]{
+		\node at (\cardwidth-\stripwidth*1.7,\cardheight-2.5*\stripwidth) {\textbf{\LARGE #1}\Health};
+}

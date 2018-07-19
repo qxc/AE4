@@ -1,0 +1,191 @@
+\documentclass[landscape]{article}
+%   Pakete dazuladen
+\input{libs.tex}
+%   Farbdefinitionen laden
+\input{colors.tex}
+\usetikzlibrary{decorations.text}
+
+\pgfmathsetmacro{\cardwidth}{4}
+\pgfmathsetmacro{\cardheight}{4}
+\pgfmathsetmacro{\offset}{.5}
+
+
+\def\shapeCard{(-\cardwidth,-\cardheight) rectangle (\cardwidth,\cardheight)}
+\def\arrow{
+  (259.25:2) -- (267:1.7) arc (267:-60:1.7) [rounded corners=0.5] --
+  (-60:1.5) [rounded corners=1] -- (-80:2.1) [rounded corners=0.5] --
+  (-60:2.5) [sharp corners] -- (-60:2.3) arc (-60:266:2.3)
+  [rounded corners=1] -- (259.25:2.0) -- (267:1.7) -- cycle
+}
+
+\tikzset{
+    %   runde Ecken für die Karten
+    cardcorners/.style={
+        rounded corners=0.2cm
+    },
+}
+
+\newcommand{\Money}{\includegraphics[height = .4cm]{money} }
+\newcommand{\InvMoney}{\includegraphics[height = .4cm]{InvMoney}}
+\newcommand{\GMoney}{\includegraphics[height = .4cm]{greyMoney}}
+\newcommand{\Damage}{\includegraphics[height = .4cm]{damage} }
+\newcommand{\Rot}{\includegraphics[height = .6cm]{rotate}}
+\newcommand{\Flip}{\includegraphics[height = .6cm]{flip}}
+\newcommand{\InvFlip}{\includegraphics[height = .6cm]{invFlip}}
+%\newcommand{\InvFlip}{\includegraphics[height = .6cm]{test}}
+\newcommand{\Card}{\includegraphics[height = .4cm]{card} }
+
+\newcommand{\cardborder}{
+    \draw[black,cardcorners] \shapeCard;
+}
+									
+\newcommand{\rentfour}[2]{
+	\clip[cardcorners] \shapeCard;	
+	\node[rotate=270, text width=3.75cm] at (\cardwidth-.3, 0) {
+	\begin{center}
+	\color{black} \textbf{ #1 \Money :Open \InvFlip}
+	\end{center}
+	};
+	%\draw [decorate,decoration={text along path,text={#2  M :Focus}}] (35:1.9) arc (35:-35:1.9);
+	\node[rotate=270, text width=3.75cm] at (2, 0) {
+	\begin{center}
+	\color{black} \textbf{ #2 \GMoney :Focus}
+	\end{center}
+	};
+	}
+	
+\newcommand{\rentthree}[2]{
+	\clip[cardcorners] \shapeCard;
+	\node[text width=3.75cm] at (0, \cardheight-.3) {
+	\begin{center}
+	\color{black} \textbf{ #1 \Money :Open \InvFlip }
+	\end{center}
+	};
+	\node[text width=3.75cm] at (0, 2) {
+	\begin{center}
+	\color{black} \textbf{ #2 \GMoney :Focus}
+	\end{center}
+	};
+	}
+	
+
+\newcommand{\renttwo}[2]{
+	\clip[cardcorners] \shapeCard;
+	\node[rotate=90, text width=3.75cm] at (-\cardwidth+.3, 0) {
+	\begin{center}
+	\color{black} \textbf{ #1 \Money :Open \InvFlip}
+	\end{center}
+	};
+	\node[rotate=90, text width=3.75cm] at (-2, 0) {
+	\begin{center}
+	\color{black} \textbf{#2 \GMoney :Focus}
+	\end{center}
+	};
+	
+}
+\newcommand{\rentone}[1]{
+	\clip[cardcorners] \shapeCard;
+	\node[text width=3.75cm, rotate = 180]  at (0, -\cardheight+.3) {
+	\begin{center} \color{white} \textbf{ #1 \InvMoney :Open \Flip} \end{center}
+	};
+	%\node[text width=3.75cm, rotate = 180]  at (0, -2) {
+	%\begin{center} \color{white} \textbf{ #2 \InvMoney :Focus} \end{center}
+	%};
+	
+}
+
+\newcommand{\cardbackground}[2]{
+	\node at (0,0) {\includegraphics[height = 3cm]{prepslot.pdf}};
+	\draw[fill = #1] (0, 0) circle (\offset);
+	\node[text width=3.75cm]  at (0, \cardheight-2*\offset) {
+	\begin{center} \color{black} \LARGE{\textbf{Opened \\ Breach}} \end{center} 
+	};
+	\node[text width = .5cm] at (\cardwidth-1.5*\offset,  -\cardheight+1.5*\offset) {\LARGE{\textbf{#2}}};
+}
+
+\newcommand{\costs}[2]{
+	\clip[cardcorners] \shapeCard;
+	\draw[fill=white] (-\cardwidth,\cardheight)--(\cardwidth,\cardheight)--(0,0)--cycle;
+	\draw[fill=white] (-\cardwidth,\cardheight)--(-\cardwidth,-\cardheight)--(0,0)--cycle;
+	\draw[fill=black] (-\cardwidth,-\cardheight)--(\cardwidth,-\cardheight)--(0,0)--cycle;
+	\draw[fill=white] (\cardwidth,-\cardheight)--(\cardwidth,\cardheight)--(0,0)--cycle;
+	\draw[fill= #2] (0, 0) circle (2);
+	\definecolor{arrowcolor}{RGB}{200,200,200}
+	\draw[color=black, left color=arrowcolor, right color=arrowcolor] \arrow;
+	\node[text width=3.75 cm] at (0,  1.5*\offset) {\begin{center} \LARGE{\textbf{Closed \\ Breach}} \end{center}};
+	}
+	
+\newcommand{\extra}[1]{
+\node[text width=3.75 cm] at (0,  -\offset) {\begin{center} \large{\textbf{#1}} \end{center}};
+}
+
+\newcommand{\extrabg}[1]{
+\node[text width=3.75 cm] at (0,  -\cardheight+3*\offset) {\begin{center} \LARGE{\textbf{#1}} \end{center}};
+}
+
+
+\begin{document}
+\begin{center}
+\pagestyle{empty}
+\begin{tikzpicture} 
+\cardborder
+\cardbackground{white}{A}
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\costs{2}{white}
+\rentone{2}
+\renttwo{3}{2}
+\rentthree{4}{2}
+\rentfour{5}{2}
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\costs{3}{white}
+\extra{Once Opened:\\ +1 \Damage}
+\rentone{3}
+\renttwo{5}{3}
+\rentthree{7}{3}
+\rentfour{9}{3}
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\costs{4}{white}
+\extra{Once Opened:\\ +1 \Damage}
+\rentone{4}
+\renttwo{7}{4}
+\rentthree{10}{4}
+\rentfour{13}{4}
+\end{tikzpicture} 
+\begin{tikzpicture} 
+\cardborder
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\cardbackground{white}{C}
+\extrabg{+1 \Damage on Cast}
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\cardbackground{white}{B}
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\cardbackground{white}{A}
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\end{tikzpicture}
+\begin{tikzpicture} 
+\cardborder
+\cardbackground{white}{D}
+\extrabg{+1 \Damage on Cast}
+\end{tikzpicture}
+\end{center}
+\end{document}

@@ -1,0 +1,29 @@
+\documentclass{article}
+
+%   Pakete dazuladen
+\input{libs.tex}
+%   Farbdefinitionen laden
+\input{colors.tex}
+%   \card-Commands laden
+\input{tikzcardsBare.tex}
+
+\newcommand{\Cast}{\textbf{Cast: }}
+\newcommand{\Trash}{\includegraphics[height = .4cm]{trash} }
+\newcommand{\Money}{\includegraphics[height = .4cm]{money}}
+\newcommand{\Damage}{\includegraphics[height = .4cm]{damage} }
+\newcommand{\Or}{\textbf{or }}
+\newcommand{\Justice}{\includegraphics[height = .4cm]{Justice} }
+
+\newcommand{\WideSpell}[1]{\begin{tikzpicture}
+\node at (0,0) {\includegraphics[height =.5cm]{blank}};
+\node at (1.5,0) {\includegraphics[height =1cm]{large}};
+\node at (1.85, -.04){\includegraphics[height=.25cm]{#1}};
+\end{tikzpicture}
+}
+
+\begin{document}
+\begin{center}
+\input{cards.txt}
+
+\end{center}
+\end{document}

@@ -1,0 +1,14 @@
+\nonstopmode
+\input{charBoard.tex}
+\begin{document}
+\begin{tikzpicture} 
+\cardborder 
+\basicinfo 
+\name{Yan}
+\ability{Insight's Taint: Open any player's breach. Draw 5 cards. At the end of your turn, suffer 2 damage and destroy the top 3 cards of your deck.}{5}
+\startingDeck{Crystal}{Crystal}{Crystal}{Crystal}{Spark}
+\startingHand{Crystal}{Crystal}{Crystal}{Crystal}{Tame Lightning}
+\startingPrep{}{1}{rent1.png}{2}{rent2.png}{1}{rent3.png}{1}
+\end{tikzpicture}
+
+ \end{document}

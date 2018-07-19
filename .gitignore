@@ -1,0 +1,12 @@
+*.png
+*.jpg
+*.aux
+*.bbl
+*.blg
+*.log
+*.pdf
+bossSheet.txt
+*.txt
+*.csv
+*.gz
+*.tmp

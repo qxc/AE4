@@ -1,0 +1,108 @@
+%   COMMANDS ZUM ZUSAMMENBAUEN DER KARTEN
+%   ---------------------------------------
+
+%   TikZ/PGF Settings für die Karten
+\pgfmathsetmacro{\cardwidth}{6}
+\pgfmathsetmacro{\cardheight}{8.5}
+\pgfmathsetmacro{\imagewidth}{\cardwidth}
+\pgfmathsetmacro{\imageheight}{0.75*\cardheight}
+\pgfmathsetmacro{\stripwidth}{0.7}
+\pgfmathsetmacro{\strippadding}{0.2}
+\pgfmathsetmacro{\textpadding}{0.1}
+\pgfmathsetmacro{\titley}{.94*\cardheight}
+\pgfmathsetmacro{\titlex}{2.3}
+
+
+
+%   Formen der einzelnen Kartenelemente/-bestandteile
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+\def\shapeLeftStripTop{(\strippadding,\cardheight/2+1) rectangle (\strippadding+\stripwidth,\cardheight-\strippadding-\strippadding-1)}
+\def\shapeLeftStripBot{(\strippadding,-0.2) rectangle (\strippadding+\stripwidth,\cardheight/2-3)}
+\def\shapeLeftStripShort{(\strippadding,\cardheight-\strippadding-1) rectangle (\strippadding+\stripwidth,\cardheight+0.2)}
+\def\shapeRightStripShort{(\cardwidth-\stripwidth-\strippadding,\cardheight-\strippadding-1) rectangle (\cardwidth-\strippadding,\cardheight+0.2)}
+\def\shapeTitleArea{(2*\strippadding+\stripwidth,\cardheight-\strippadding) rectangle (\cardwidth-2*\strippadding-\stripwidth,\cardheight-2*\stripwidth)}
+\def\shapeContentArea{(2*\strippadding+\stripwidth,0.5*\cardheight) rectangle (\cardwidth+0.2,-0.2)}
+
+
+%   Stylings für die Elemente definieren
+\tikzset{
+    %   runde Ecken für die Karten
+    cardcorners/.style={
+        rounded corners=0.2cm
+    },
+    %   runde Ecken für die "Fähnchen"
+    elementcorners/.style={
+        rounded corners=0.1cm
+    }
+}
+
+
+\newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
+\newcommand{\Health}{\includegraphics[height = .6cm]{heart}}
+
+%   Rahmen der Karte
+\newcommand{\cardborder}{
+    \draw[cardcorners] \shapeCard;
+}
+
+\newcommand{\cardhp}[1]{
+		\node[left] at (\cardwidth-\stripwidth*.45,\cardheight-6.2*\stripwidth) {\textbf{\LARGE #1} \Health};
+}
+\newcommand{\cardtier}[1]{
+		\node at (\cardwidth/8,\cardheight/8) {#1};
+}
+
+\newcommand{\modifier}{
+\node[rotate=270] at (.5,6) {\textbf{\Large{\uppercase{Modifier}}}};
+}
+%   Hintergrund der Karte
+\newcommand{\cardbackground}[1]{
+		\clip[cardcorners] \shapeCard;
+		%\draw[fill=white] (\cardwidth-.2,\cardheight-.2)--(.2,\cardheight-.2)--(.2,.2)--(\cardwidth-.2,.2)--cycle;
+    %\node at (\cardwidth/2, \cardheight/2) {\includegraphics[height = 9.5cm]{#1}};
+		\node[rotate=90] at (.5,6) {\textbf{\Large{\uppercase{#1}}}};
+}
+
+\newcommand{\modcardbackground}[1]{
+		\clip[cardcorners] \shapeCard;
+		%\draw[fill=white] (\cardwidth-.2,\cardheight-.2)--(.2,\cardheight-.2)--(.2,.2)--(\cardwidth-.2,.2)--cycle;
+		\node at (\cardwidth-4*\stripwidth, \cardheight-\stripwidth) {\textbf{\Large{\uppercase{#1}}}};
+}
+
+\newcommand{\cardtitle}[1]{
+    \node[text width=3cm, below right] at (2,8.3) {
+       \shadowtext{\parbox{2.8cm}{\begin{spacing}{1.2}\textbf{\hspace{-.5cm}\uppercase{\Large #1}}\end{spacing}}}
+    };
+}
+\newcommand{\modcardtitle}[1]{
+    \node[text width=3cm, below right, rotate=270] at (\cardwidth*.95, \cardheight*.8) {
+       \shadowtext{\parbox{2.8cm}{\begin{spacing}{1.2}\textbf{\hspace{-.5cm}\uppercase{\Large #1}}\end{spacing}}}
+    };
+}
+\newcommand{\cardcontent}[1]{
+    %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
+		\node[text width=4.4cm, below right] at (\stripwidth*1.1, 0.46*\cardheight) {\textrm{#1}};
+}
+
+\newcommand{\modcardcontent}[1]{
+		\node[text width=3.5cm, below right, rotate=270] at (\cardwidth-\stripwidth*1.1, 0.46*\cardheight) {\textrm{#1}};
+}
+
+\newcommand{\cardimage}[1]{
+	\node at (\cardwidth*.6, \cardheight*.65) {\includegraphics[height = 2.5cm]{#1}};
+}
+
+
+\newcommand{\modcardimage}[2]{
+	\node[rotate=270] at (\cardwidth*.5, \cardheight*.65) {\includegraphics[height = 2.5cm]{#1}};
+	\node at (.5, \cardheight-.5) {\includegraphics[height = .8cm]{#2}};
+}
+
+
+\newcommand{\player}[1]{
+	\node at (.5, .5) {\includegraphics[height = .8cm]{#1}};
+}
+
+\newcommand{\cardprice}[1]{
+		\node at (\stripwidth*1.7,\cardheight-1.2*\stripwidth) {\textbf{\LARGE #1}};
+}

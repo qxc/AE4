@@ -1,0 +1,36 @@
+\nonstopmode
+\documentclass{article}
+\input{libs.tex}
+\input{colors.tex}
+\usepackage[none]{hyphenat}
+\pgfmathsetmacro{\cardwidth}{17.5}
+\pgfmathsetmacro{\cardheight}{26}
+\pgfmathsetmacro{\offset}{.5}
+\pgfmathsetmacro{\tw}{8cm}
+\pgfmathsetmacro{\squarewidth}{2.5}
+\pgfmathsetmacro{\squareheight}{2.25}
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+\newcommand{\Money}{\includegraphics[height = .4cm]{money} }
+\newcommand{\cardborder}{\draw[black] \shapeCard;
+\draw[ultra thick] (\cardwidth/2, \cardheight/2) rectangle (0, \cardheight);}
+\newcommand{\name}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight-\offset) {\LARGE{#1}};}
+\newcommand{\setup}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.93) {\textbf{Setup:} #1};}
+\newcommand{\unleash}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.74) {\textbf{Unleash:} #1};}
+\newcommand{\rules}[1]{\node at (\cardwidth*.7, \cardheight/2+10) ; \node[text width = 7 cm] at (\cardwidth*3/4, \cardheight/2+6) {#1};}
+\newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}
+\newcommand{\hp}[1]{\textbf{#1} \image{heart}}
+\begin{document}
+\begin{center}
+\pagestyle{empty}\begin{tikzpicture} 
+\draw[black] \shapeCard; 
+ewline\newcommand{\Or}{\newline \textbf{OR} \newline};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Thrice Dead Prophet \image{edge} \hp{40}};
+\setup{}
+\unleash{Gain 5 life. If the nemesis has 60 or more life, gain a prophecy token.}
+\rules{This nemesis has no maximum life. If the nemesis deck runs out of cards, the players lose immediately. At the end of a nemesis turn in which he has 3 or more prophecy tokens, discard the top card of the nemesis deck and lose 3 prophecy tokens. If Prophet has 99 life or higher, the players lose the game.};
+\end{tikzpicture}
+
+
+ \end{center} 
+ \end{document}

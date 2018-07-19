@@ -1,0 +1,146 @@
+\documentclass[landscape]{standalone}
+\usepackage{tikz} 
+\usepackage{DejaVuSansMono}
+\renewcommand*\familydefault{\ttdefault} %% Only if the base font of the document is to be typewriter style
+\usepackage[T1]{fontenc}
+\usepackage[none]{hyphenat}
+
+\pgfmathsetmacro{\boardwidth}{13}
+\pgfmathsetmacro{\boardheight}{10}
+\pgfmathsetmacro{\cardwidth}{6}
+\pgfmathsetmacro{\cardheight}{8.5}
+\pgfmathsetmacro{\squarewidth}{2.5}
+\pgfmathsetmacro{\squareheight}{2.25}
+\pgfmathsetmacro{\tw}{8cm}
+
+\def\shapeCard{(-\boardwidth, -\boardheight) rectangle (\boardwidth,\boardheight)}
+
+\newcommand{\Money}{\includegraphics[height = .4cm]{money} }
+\newcommand{\Trash}{\includegraphics[height = .4cm]{trash} }
+\newcommand{\Damage}{\includegraphics[height = .4cm]{damage} }
+\newcommand{\Health}{\includegraphics[height = .4cm]{heart} }
+\newcommand{\Or}{\textbf{OR}}
+
+\newcommand{\cardborder}{
+    \draw[black] \shapeCard;
+}   
+
+\newcommand{\startingPrep}[8]{
+\clip \shapeCard;
+\node[rotate = 90*#2-90 ] at (-\boardwidth, \boardheight-1.5) {\includegraphics[height = 8cm]{#1}};
+\node[rotate = 90*#4-90 ] at (-\boardwidth/3, \boardheight-1.5) {\includegraphics[height = 8cm]{#3}};
+\node[rotate = 90*#6-90 ] at (\boardwidth/3, \boardheight-1.5) {\includegraphics[height = 8cm]{#5}};
+\node[rotate = 90*#8-90 ] at (\boardwidth, \boardheight-1.5) {\includegraphics[height = 8cm]{#7}};
+}
+
+\newcommand{\basicinfo}{
+	\node[text width = \tw] at (\boardwidth*.47,.75) {
+	\textbf{Turn Order:}\\
+	\small{\begin{enumerate}
+	\item Casting Phase: In any order: You may cast any of your prepped spells in opened breaches. You must cast any of your prepped spells in closed breaches.
+	\item Main Phase: You may do the following in any order, any number of times
+		\begin{enumerate}
+		\item Play gem and relic cards
+		\item Focus or open breaches
+		\item Prep spells to breaches. 
+		\item Buy cards
+		\item Gain charges
+		\end{enumerate}
+	\item Draw Phase: Place cards played this turn in your discard pile in any order. Draw cards until five cards in hand.\\
+	\end{enumerate}}
+	};
+	\draw (-\boardwidth,-\boardheight+1) rectangle (-\boardwidth+\cardwidth/2,-\boardheight+\cardheight+1);
+	\node[rotate=90] at (-\boardwidth+1, -\boardheight+\cardheight/2+1) {\Huge Deck};
+	\draw (\boardwidth,-\boardheight+1) rectangle (\boardwidth-\cardwidth/2,-\boardheight+\cardheight+1);
+	\node[rotate=270] at (\boardwidth-1, -\boardheight+\cardheight/2+1) {\Huge Discard};
+	\node at (-8, -5) {\LARGE{Life:}};
+	\draw (-6,-6) rectangle (-6+\squarewidth*6,-6+\squareheight);
+}
+
+\newcommand{\notes}[1]{
+	\node[text width=7cm, left] at (\squarewidth*.05 - 2, \squareheight*.1 - 2) {\textbf{Notes:} #1};
+}
+
+\newcommand{\name}[1]{
+\node at (0, 3) {\LARGE{#1}};
+\draw (-\squarewidth/2,2.5) rectangle (\squarewidth/2, 2.5-\squareheight);
+\node[text width = 2 cm] at (0, 2.5-\squareheight/2) {\begin{center}Player \\ Number\end{center}};
+}
+\newcommand{\startingHand}[5]{
+\pgfmathsetmacro{\handheight}{3}
+\pgfmathsetmacro{\handwidth}{2.25}
+\node at (-\boardwidth+2, \handheight+1) {Starting Hand:  };
+\node[text width = 2cm] at (-\boardwidth+1.25, \handheight) {#1};
+\node[text width = 2cm] at (-\boardwidth+1.25+\handwidth, \handheight) {#2};
+\node[text width = 2cm] at (-\boardwidth+1.25+2*\handwidth, \handheight) {#3};
+\node[text width = 2cm] at (-\boardwidth+1.25+3*\handwidth, \handheight) {#4};
+\node[text width = 2cm] at (-\boardwidth+1.25+4*\handwidth, \handheight) {#5};
+}
+
+
+\newcommand{\startingDeck}[5]{
+\pgfmathsetmacro{\deckheight}{1}
+\pgfmathsetmacro{\deckwidth}{2.25}
+\node at (-\boardwidth+2, \deckheight+1) {Starting Deck:  };
+\node[text width = 2cm] at (-\boardwidth+1.25, \deckheight) {#1};
+\node[text width = 2cm] at (-\boardwidth+1.25+\deckwidth, \deckheight) {#2};
+\node[text width = 2cm] at (-\boardwidth+1.25+2*\deckwidth, \deckheight) {#3};
+\node[text width = 2cm] at (-\boardwidth+1.25+3*\deckwidth, \deckheight) {#4};
+\node[text width = 2cm] at (-\boardwidth+1.25+4*\deckwidth, \deckheight) {#5};
+}
+%
+%\newcommand{\startingHand2}[5]{
+%\pgfmathsetmacro{\handheight}{3}
+%\pgfmathsetmacro{\handwidth}{1.5}
+%\node at (-\boardwidth+2, \handheight+1) {Starting Hand:  };
+%\node at (-\boardwidth+1, \handheight) {\includegraphics[height = 1cm]{#1}};
+%\node at (-\boardwidth+1+\handwidth, \handheight) {\includegraphics[height = 1cm]{#2}};
+%\node at (-\boardwidth+1+2*\handwidth, \handheight) {\includegraphics[height = 1cm]{#3}};
+%\node at (-\boardwidth+1+3*\handwidth, \handheight) {\includegraphics[height = 1cm]{#4}};
+%\node at (-\boardwidth+1+4*\handwidth, \handheight) {\includegraphics[height = 1cm]{#5}};
+%}
+%
+%
+%\newcommand{\startingDeck2}[5]{
+%\pgfmathsetmacro{\deckheight}{1}
+%\pgfmathsetmacro{\deckwidth}{1.5}
+%\node at (-\boardwidth+2, \deckheight+1) {Starting Deck:  };
+%\node at (-\boardwidth+1, \deckheight) {\includegraphics[height = 1cm]{#1}};
+%\node at (-\boardwidth+1+\deckwidth, \deckheight) {\includegraphics[height = 1cm]{#2}};
+%\node at (-\boardwidth+1+2*\deckwidth, \deckheight) {\includegraphics[height = 1cm]{#3}};
+%\node at (-\boardwidth+1+3*\deckwidth, \deckheight) {\includegraphics[height = 1cm]{#4}};
+%\node at (-\boardwidth+1+4*\deckwidth, \deckheight) {\includegraphics[height = 1cm]{#5}};
+%}
+
+\newcommand{\ability}[2]{
+
+\node[text width = 16 cm] at (-1, -6.5) {\textbf{Ability}\\ #1 };
+
+\ifnum 1>#2\relax\else
+\node at (-9+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+
+\ifnum 2>#2\relax\else
+\node at (-6+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+
+\ifnum 3>#2\relax\else
+\node at (-3+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+
+\ifnum 4>#2\relax\else
+\node at (0+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+
+\ifnum 5>#2\relax\else
+\node at (3+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+
+\ifnum 6>#2\relax\else
+\node at (6+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+
+\ifnum 7>#2\relax\else
+\node at (9+\squarewidth/2, -9.75+\squareheight/2) {\includegraphics[height = 2cm]{chargetest}};
+\fi
+}

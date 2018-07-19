@@ -1,0 +1,1 @@
+mkdir "C:\Users\coldf_000\Dropbox\backup\latex\2019 AE\files\%date:/= %"
