@@ -10,3 +10,4 @@ bossSheet.txt
 *.csv
 *.gz
 *.tmp
+client_secret.json
