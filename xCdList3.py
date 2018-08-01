@@ -3,10 +3,10 @@ import subprocess
 
 def createCard(name, cardType, cost, text, image,hp, shield):
     code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"
+    code += "\cardimage{" + image + "} \n"
     code += "\cardtitle{" + name+ "} \n"
     code += "\cardborder{} \n"
     code += "\cardcontent{" + text + "} \n"
-    code += "\cardimage{" + image + "} \n"
     code += "\cardprice{" + str(cost) + "} \n"
     if hp != "":
         code += "\cardhp{" + hp + "} \n"

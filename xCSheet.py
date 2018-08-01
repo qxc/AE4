@@ -65,7 +65,7 @@ def processCards(fileName = "cSheet.csv"):
             abilityDescription = row['Ability Description']
             abilityCost = row['Ability Cost']
             notes = row['Notes']
-            if row['Status'] == "":
+            if row['Card Status'] == "":
                 continue
             char = createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost,notes)
             makePDF(name,char)

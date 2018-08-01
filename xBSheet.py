@@ -1,7 +1,7 @@
 import csv
 import subprocess
 
-def createBoss(name, unleash, setup, rules, hp, difficulty, image):
+def createBoss(name, unleash, setup, rules, hp, difficulty, image, diffR):
     code = "\\begin{tikzpicture} \n\draw[black] \shapeCard; \\newline"
     code += "\\newcommand{\Or}{\\textbf{OR}};"
     code += "\n\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); \n"
@@ -10,6 +10,7 @@ def createBoss(name, unleash, setup, rules, hp, difficulty, image):
     code += "\\unleash{" + unleash + "}\n"
     code += "\\difficulty{" + difficulty + "}\n"
     code += "\\rules{" + rules + "};"
+    code += "\\diffR{" + diffR + "};"
     code += "\n\end{tikzpicture}\n\n"
     return code
 
@@ -29,9 +30,10 @@ def processBoss(fileName = "bSheet.csv"):
             hp = row['HP']
             image = row['Image']
             difficulty = row['Difficulty']
-            if row['Status'] == "":
+            diffR = row['Difficulty Rating']
+            if row['Card Status'] == "":
                 continue
-            char = createBoss(name, unleash, setup, rules, hp, difficulty, image)
+            char = createBoss(name, unleash, setup, rules, hp, difficulty, image, diffR)
             f.write(char)
     f.write("\n \end{center} \n \end{document}")
     f.close()
@@ -66,6 +68,7 @@ def makeHeader():
     header += "\n\\newcommand{\\rules}[1]{\\node at (\cardwidth*.7, \cardheight/2+10) ; \\node[text width = 7 cm] at (\cardwidth*3/4, \cardheight/2+2) {\\textbf{Rules:} #1};}"
     header += "\n\\newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}"
     header += "\n\\newcommand{\hp}[1]{\\textbf{#1} \image{heart}}"
+    header += "\n\\newcommand{\\diffR}[1]{\\node[text width = \\tw] at (\cardwidth*.9, \cardheight*.95) {\\textbf{Difficulty Rating:} #1};}"
     header += "\n\\begin{document}\n\\begin{center}\n\pagestyle{empty}"
     return header
 

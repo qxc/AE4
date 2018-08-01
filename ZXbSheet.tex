@@ -20,68 +20,9 @@
 \newcommand{\rules}[1]{\node at (\cardwidth*.7, \cardheight/2+10) ; \node[text width = 7 cm] at (\cardwidth*3/4, \cardheight/2+2) {\textbf{Rules:} #1};}
 \newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}
 \newcommand{\hp}[1]{\textbf{#1} \image{heart}}
+\newcommand{\diffR}[1]{\node[text width = \tw] at (\cardwidth*.9, \cardheight*.95) {\textbf{Difficulty Rating:} #1};}
 \begin{document}
 \begin{center}
-\pagestyle{empty}\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Fenrix \image{ChannelMan} \hp{60}};
-\setup{Each player gains a Position token of their color. \newline Shuffle all of the claw cards together and place them facedown to form the claw deck. \newline If not playing with four players, draw a card from the claw deck and place it into play.}
-\unleash{The nemesis gains one nemesis token.}
-\difficulty{}
-\rules{At the end of the nemesis turn, if the nemesis has two or more nemesis tokens, place a claw into play and the nemesis loses two nemesis tokens. Repeat this until the nemesis has less than two nemesis tokens. \newline When a claw is discarded from play, place it on the bottom of the claw deck. \newline When the claw deck is empty, the players lose. During any player's main phase, that player may place their Position token on a minion. \newline When a minion dies with a Position token on it, return that token to its respective owner. };
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{The Wailing  \image{CrystalMan} \hp{60}};
-\setup{Add an additional supply pile consisting of twenty-five Cracked Crystals. \newline Give player 1 the target token. \newline Place Shatter into play with X power tokens. Refer to the Rules on the front of this mat to determine the value of X. \newline The nemesis gains one nemesis token.}
-\unleash{The player with the target token gains two Cracked Crystals. That player passes the target token to the player on their left.}
-\difficulty{}
-\rules{When playing with 1/2/3/4 players, X = 4/6/8/11 for Shatter. \newline During any player's main phase, that player may spend 7 \Money{} to remove a nemesis token. \newline When a player would gain a Cracked Crystal and that supply pile is empty, that player suffers 1 damage instead.};
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Ageless Walker \image{ExileMan} \hp{80}};
-\setup{Each player gains a Curse of Aging card. \newline Place one card from the most expensive supply pile next to this mat. This is the Exiled pile.}
-\unleash{Any player exiles a card in hand or the top card of their discard pile.}
-\difficulty{}
-\rules{When a card is exiled, place it on top of the Exiled pile. \newline Players may gain the top card of the Exiled pile by paying its cost plus 1 \Money{}.};
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Arachnos \image{FinalMan} \hp{60}};
-\setup{Place the Ritual track next to this mat. \newline Place the Arachnos token on the start position. \newline Place World Devourer cards next to this mat.}
-\unleash{Move the Arachnos token one space forward.}
-\difficulty{}
-\rules{Players may spend \Money{} equal to the number shown on the track for the current position of the Arachnos token to move it back one space on the track. \newline When the Arachnos token reaches the end of the Ritual track, the ritual is complete: Remove the nemesis deck, all minions, and all powers from the game. Do not finish resolving any cards that were being resolved when the ritual was completed. Skip the Nemesis draw phase for the rest of the game. Find the World Devourer that has a tier number equal to the number of nemesis tokens Arachnos has and place it into play. Do not resolve its Persistent effect this turn. \newline While World Devourer is in play, players cannot deal damage to the nemesis, and the players win when World Devourer is discarded. \newline When a player is exhausted if World Devourer in play, Gravehold suffers 4 damage instead of Unleash twice. When the players would win the game and World Devourer hasn't entered play yet, instead place the current tier of World Devourer into play.};
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Necroswarm \image{VolatileMan} \hp{60}};
-\setup{Place the Bramble Position Track next to this mat. \newline Unleash.}
-\unleash{Place one bramble token into play at position 5.}
-\difficulty{}
-\rules{At the start of the nemesis turn, the brambles rush Gravehold: Roll the bramble movement die (0,1,1,1,1,2). Each bramble token moves that many spaces toward Gravehold. \newline When a bramble token reaches Gravehold, discard it and Gravehold suffers 3 damage. \newline bramble tokens are minions that can only be dealt damage equal to or greater than its position on the Bramble Position Track. If damage is dealt this way, discard it from play.};
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{The Wanderer \image{PylonMan} \hp{50}};
-\setup{Place the four Dampening Pylons into play with 9 life.}
-\unleash{Any pylon gains 2 life. \newline \Or \newline Any player suffers 2 damage. \newline \Or \newline The Wanderer gains 3 life.}
-\difficulty{}
-\rules{Reduce all damage that would be dealt to the nemesis by abilities and player cards to 1. \newline During any player's main phase, that player may spend any amount of \Money{} to deal an equal amount of damage to the nemesis.};
-\end{tikzpicture}
-
-
+\pagestyle{empty}
  \end{center} 
  \end{document}

@@ -19,6 +19,7 @@
 \newcommand{\Overkill}{\textbf{Overkill}}%(If this kills a minion, deal the remaining damage to the nemesis.)}
 \newcommand{\Energized}{\textbf{Energized}}% If this deals more than its base damage, }
 \newcommand{\Countdown}{\textbf{Countdown}}% If this deals more than its base damage, }
+\newcommand{\Attach}{\textbf{Attach} }% If this deals more than its base damage, }
 \newcommand{\Shadow}{\textbf{Shadow:}} %Place a Shadow token on a minion. Prevent all damage dealt to a minion with a shadow token. Players can reduce a shadowed minion's life by spending \Money{}.}
 %   TikZ/PGF Settings für die Karten
 \pgfmathsetmacro{\cardwidth}{6}
@@ -29,7 +30,7 @@
 \pgfmathsetmacro{\strippadding}{0.2}
 \pgfmathsetmacro{\textpadding}{0.1}
 \pgfmathsetmacro{\titley}{.94*\cardheight}
-\pgfmathsetmacro{\titlex}{2.3}
+\pgfmathsetmacro{\titlex}{2.15}
 
 
 
@@ -57,7 +58,7 @@
 
 
 \newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
-\newcommand{\Health}{\includegraphics[height = .6cm]{heart}}
+\newcommand{\Health}{\includegraphics[height = .4cm]{heart}}
 \newcommand{\Shield}{\includegraphics[height = .6cm]{shield}}
 
 %   Rahmen der Karte
@@ -78,7 +79,7 @@
 }
 
 \newcommand{\cardtitle}[1]{
-    \node[text width=3cm, below right] at (\titlex,\titley) {
+    \node[text width=2.75cm, below right] at (\titlex,\titley) {
         
        \shadowtext{\parbox{2.8cm}{\begin{spacing}{1.2}\textbf{\hspace{-.5cm}\uppercase{\Large #1}}\end{spacing}}}
         
@@ -92,7 +93,7 @@
 }
 \newcommand{\cardcontent}[1]{
     %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
-		\node[text width=4.4cm, below right] at (\stripwidth*1.1, 0.46*\cardheight) {\textrm{#1}};
+		\node[text width=4.5cm, below right] at (\stripwidth*1.02, 0.535*\cardheight) {\textrm{#1}};
 }
 
 \newcommand{\tier}[1]{
@@ -104,7 +105,7 @@
 		\node at (\cardwidth*.9, \cardheight/8) {#1};
 }
 \newcommand{\cardimage}[1]{
-	\node at (\cardwidth*.6, \cardheight*.65) {\includegraphics[height = 2.5cm]{#1}};
+	\node at (\cardwidth*.56, \cardheight*.67) {\includegraphics[height = 2.3cm]{#1}};
 }
 
 \newcommand{\cardprice}[1]{
@@ -123,7 +124,7 @@
 }
 
 \newcommand{\cardhp}[1]{
-		\node[left] at (\cardwidth-\stripwidth*.45,\cardheight-6.2*\stripwidth) {\textbf{\LARGE #1} \Health};
+		\node[left] at (\cardwidth*.92,\cardheight*.82) {\textbf{\Large #1}\Health};
 }
 \newcommand{\cardshield}[1]{
 		\node[left] at (\cardwidth*.3+\stripwidth*.45,\cardheight-6.2*\stripwidth) {\textbf{\LARGE #1} \Shield};
