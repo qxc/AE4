@@ -33,7 +33,7 @@ def processCards(fileName = "cardList.csv"):
             text = row['description']
             version = row['sync']
             hp = row['HP']
-            tier = row['Tier']
+            tier = ""
             if cardType == "":
                 continue
             if row['Card Status'] == "":
