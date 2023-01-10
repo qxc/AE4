@@ -24,7 +24,13 @@ def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescri
             code+= "{own" + str(i) + ".png}{1}"
         elif breaches[i] == 6:
             code+= "{specialbreachO.png}{1}"
-        elif breaches[i] > 5:
+        elif breaches[i] == 9:
+            code+= "{specialbreach0.png}{" + str(breaches[i]%4) + "}"
+        elif breaches[i] == 10:
+            code+= "{specialbreach0.png}{" + str(breaches[i]%4) + "}"
+        elif breaches[i] == 11:
+            code+= "{specialbreach0.png}{" + str(breaches[i]%4) + "}"
+        elif breaches[i] == 12:
             code+= "{specialbreach0.png}{" + str(breaches[i]%4) + "}"
         else:
             code+= "{rent" + str(i) + ".png}{" + str(breaches[i]) + "}"
