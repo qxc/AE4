@@ -59,7 +59,7 @@
 
 \newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
 \newcommand{\Health}{\includegraphics[height = .4cm]{heart}}
-\newcommand{\Shield}{\includegraphics[height = .6cm]{shield}}
+\newcommand{\Shield}{\includegraphics[height = .4cm]{shield}}
 
 %   Rahmen der Karte
 %\newcommand{\cardborder}{
@@ -123,11 +123,15 @@
 		\node at (\stripwidth*1.7,\cardheight-1.1*\stripwidth) {\color{black} \textbf{\LARGE #1}}; %change black to currentcolor to get gradient back
 }
 
+\newcommand{\carddevcost}[1]{
+		\node at (\cardwidth*.88,\cardheight-1.1*\stripwidth) {\color{black} \textbf{\small (#1)}};
+}
+
 \newcommand{\cardhp}[1]{
 		\node[left] at (\cardwidth*.93,\cardheight*.78) {\textbf{\Large #1}\Health};
 }
 \newcommand{\cardshield}[1]{
-		\node[left] at (\cardwidth*.3+\stripwidth*.45,\cardheight-6.2*\stripwidth) {\textbf{\LARGE #1} \Shield};
+		\node[left] at (\cardwidth*.92,\cardheight*.72) {\textbf{\Large #1}\Shield};
 }
 
 \newcommand{\sync}[1]{

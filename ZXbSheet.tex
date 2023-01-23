@@ -23,6 +23,56 @@
 \newcommand{\diffR}[1]{\node[text width = \tw] at (\cardwidth*.9, \cardheight*.95) {\textbf{Difficulty Rating:} #1};}
 \begin{document}
 \begin{center}
-\pagestyle{empty}
+\pagestyle{empty}\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{The Daughters \image{Daughters} \hp{1}};
+\setup{Place Daughter of Doom, Diatribe of Doom, Melody of Madness and Matron of Malice into play. }
+\unleash{Remove 1 power token from either Diatribe of Doom or Melody of Madness.}
+\difficulty{}
+\rules{When the power for a given witch resolves, reduce the damage players or Gravehold would suffer by 3 for each barrier token on the other witch. Then discard all barrier tokens on that witch. \newline Prevent all damage dealt to the nemesis. \newline The players win the game when Daughter of Doom and Matron of Madness both have 0 life.};\diffR{};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{The Reliquary \image{Reliquary} \hp{70}};
+\setup{Place three obsessions, artifacts, and corruptions into play. Place one artifact and corruption under each obsession. Place one completion token on a random obsession. Place one cataclysm token on a random obsession.}
+\unleash{Add 1 cataclysm token to an artifact \newline \Or \newline Any player suffers 2 damage.}
+\difficulty{}
+\rules{When a player satisfies the condition on an obsession, place a completion token on that obsession. When the obsession has completion tokens equal to its cost, remove one cataclysm token from that obsession and the current player gains the artifact below it and places that artifact into their hand. If the obsession has cataclysm tokens equal to or greater than its cost, remove 1 completion token from that obsession and resolve the nemesis card below it immediately. };\diffR{};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{The Behemoth \image{Behemoth} \hp{50}};
+\setup{Place blizzard into play. Place the Cave track next to this mat. Place three yetilings into play.}
+\unleash{Place 2 yetilings into play on the Cave track.}
+\difficulty{}
+\rules{When the players place a yetiling on the cave track, it must touch an existing yetiling. During any player's main phase, that player may spend 2 \Money{} to place a shield token on Gravehold. When blizzard is resolved reduce the damage it deals to gravehold by 1/3/6 if Gravehold has 1/2/3 shield tokens. Then, discard all shield tokens from Gravehold..};\diffR{};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Writhing Mass \image{Mass} \hp{80}};
+\setup{Place the Wrath track into play. Place the marker on position 0.}
+\unleash{If the nemesis has 3 or more nemesis tokens, any player or Gravehold suffers 8 damage and the nemesis loses 3 nemesis tokens. Otherwise, the nemesis gains 1 nemesis token. }
+\difficulty{}
+\rules{When a player deals damage to the nemesis, advance the wrath track that many spaces and resolve the effect the marker lands on. If Writhing Mass would lose nemesis tokens and cannot, it suffers 5 damage instead.};\diffR{};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Crystallizing Wraith \image{Wraith} \hp{60}};
+\setup{Place a player card from the supply into stasis.}
+\unleash{The nemesis gains a nemesis token. When the nemesis has 2 or more nemesis tokens, any player or Gravehold suffers 2 damage for each card in stasis. Then, place a card from the supply into stasis from the supply pile with the Crystallize token on it. Then, advance.}
+\difficulty{}
+\rules{At most 3 cards can be in stasis. If there are already 3 cards in stasis and one would be added, skip that step. When a card is in stasis, its cost increases by 2, but does not have to be paid for all at once. During any player's main phase, that player may spend \Money{} to reduce the cost of the card by that amount. When the cost + 2 has been paid, the current player gains the card in stasis. \newline Advance place the Crystallize token on the next most expensive supply pile. If there are no supply piles more expensive than the Crystallized supply pile, move the Crystallize marker to the least expensive supply pile instead. \thinline When the Crystallize supply pile is empty, Advance. \thinline When all supply piles are empty, the players lose.};\diffR{};
+\end{tikzpicture}
+
+
  \end{center} 
  \end{document}

@@ -9,7 +9,7 @@ def createCard(name, cardType, cost, text, image,hp, shield, devCost):
     code += "\cardcontent{" + text + "} \n"
     code += "\cardprice{" + str(cost) + "} \n"
     if devCost != "":
-        code += "\devcost{" + devCost "} \n"
+        code += "\carddevcost{" + devCost + "} \n"
     if hp != "":
         code += "\cardhp{" + hp + "} \n"
     if shield != "":
@@ -37,7 +37,7 @@ def processCards(fileName = "cdList.csv"):
             name = row['Name of card']
             cost = row['cost']
             cardType = row['type'].capitalize()
-            image = row['Image2']
+            image = row['Image']
             text = row['description']
             hp = row['HP']
             shield = row['Shield']

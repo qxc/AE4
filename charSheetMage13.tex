@@ -1,0 +1,15 @@
+\nonstopmode
+\input{charBoard.tex}
+\begin{document}
+\begin{tikzpicture} 
+\cardborder 
+\basicinfo 
+\name{Mage13}
+\ability{Dial On: Activate during your main phase: Give the dial to a player and set its number to 0. }{4}
+\startingDeck{Crystal}{Crystal}{Crystal}{Crystal}{Spark}
+\startingHand{Crystal}{Crystal}{Crystal}{Crystal}{Dialer}
+\notes{At the start of the game, mage starts with damage dial. At the start of the turn of the player who has the damage dial, increment it by 1. At the end of your turn, pass it to another player. If incremented to 4, the player carrying it suffers 2 damage and the dial is destroyed. Whoever carries the damage dial deals +1 damage or +2 damage based on the current #. \newline Dial #'s: 0/1/1/1/2/damage}
+\startingPrep{own0.png}{1}{rent1.png}{1}{rent2.png}{1}{rent3.png}{1}
+\end{tikzpicture}
+
+ \end{document}

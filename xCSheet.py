@@ -4,9 +4,9 @@ import subprocess
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
 
-def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes):
+def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image):
     code = "\\begin{tikzpicture} \n\cardborder \n\\basicinfo \n"
-    code += "\\name{" + name + "}\n"
+    code += "\\name{" + name + "}{" + image + "}\n"
     code += "\\ability{" + abilityName+ ": "
     code += abilityDescription + "}{"
     code += abilityCost + "}\n"
@@ -71,9 +71,10 @@ def processCards(fileName = "cSheet.csv"):
             abilityDescription = row['Ability Description']
             abilityCost = row['Ability Cost']
             notes = row['Notes']
+            image = row['Image']
             if row['Card Status'] == "":
                 continue
-            char = createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost,notes)
+            char = createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image)
             makePDF(name,char)
             pdfName = "charSheet" + name + ".pdf"
             pdfFiles.append(pdfName)
