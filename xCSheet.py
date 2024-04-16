@@ -47,20 +47,21 @@ def processCards(fileName = "cSheet.csv"):
         for row in reader:
             name = row['Name']
             startCard = row['Starter Name']
+            startCard2 = row['Starter Name2']
             hand = []
             hand.append(row['H1'])
             hand.append(row['H2'])
             hand.append(row['H3'])
             hand.append(row['H4'])
             hand.append(row['H5'])
-            hand = processStart(hand,startCard)
+            hand = processStart(hand,startCard, startCard2)
             deck = []
             deck.append(row['D1'])
             deck.append(row['D2'])
             deck.append(row['D3'])
             deck.append(row['D4'])
             deck.append(row['D5'])
-            deck = processStart(deck,startCard)
+            deck = processStart(deck,startCard, startCard2)
             breaches = []
             breaches.append(row['B1'])
             breaches.append(row['B2'])
@@ -90,7 +91,7 @@ def processCards(fileName = "cSheet.csv"):
     subprocess.Popen([finalFileName],shell=True)
     return
 
-def processStart(hand,startCard):
+def processStart(hand,startCard, startCard2):
     for i in range(0,5): 
         if hand[i] == 'C':
             hand[i] = 'Crystal'
@@ -98,6 +99,9 @@ def processStart(hand,startCard):
             hand[i] = 'Spark'
         if hand[i] == 'U':
             hand[i] = startCard
+        if hand[i] == 'U2':
+            hand[i] = startCard2
+            
 
     return hand
 

@@ -1,0 +1,113 @@
+\nonstopmode
+\documentclass{article}
+\input{libs.tex}
+\input{colors.tex}
+\usepackage[none]{hyphenat}
+\pgfmathsetmacro{\cardwidth}{17.5}
+\pgfmathsetmacro{\cardheight}{26}
+\pgfmathsetmacro{\offset}{.5}
+\pgfmathsetmacro{\tw}{8cm}
+\pgfmathsetmacro{\squarewidth}{2.5}
+\pgfmathsetmacro{\squareheight}{2.25}
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+\newcommand{\Money}{\includegraphics[height = .4cm]{money} }
+\newcommand{\cardborder}{\draw[black] \shapeCard;
+\draw[ultra thick] (\cardwidth/2, \cardheight/2) rectangle (0, \cardheight);}
+\newcommand{\name}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight-\offset*2) {\LARGE{#1}};}
+\newcommand{\setup}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.87) {\large \textbf{Setup:} #1};}
+\newcommand{\unleash}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.67) {\large \textbf{Unleash:} #1};}
+\newcommand{\difficulty}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.20) {\textbf{Additional Difficulty Rules:} #1};}
+\newcommand{\rules}[1]{\node at (\cardwidth*.7, \cardheight/2+10) ; \node[text width = 7 cm] at (\cardwidth*3/4, \cardheight/2+2) {\large \textbf{Rules:} #1};}
+\newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}
+\newcommand{\hp}[1]{\textbf{#1} \image{heart}}
+\newcommand{\diffR}[1]{\node[text width = \tw] at (\cardwidth*.9, \cardheight*.95) {\textbf{Difficulty Rating:} #1};}
+\newcommand{\ability}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.7) {\large \textbf{Ability:} #1};}
+\newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}
+\newcommand{\type}[1]{#1}
+\newcommand{\abilitycost}[1]{#1}
+\newcommand{\sync}[1]{\node[text width = \tw] at (\cardwidth*.8, \cardheight*.2) {\large \textbf{Version:} #1};}
+\begin{document}
+\begin{center}
+\pagestyle{empty}\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Amalgamation \image{Foe1} \type{Foe}};
+\setup{Place the Broodling cards above this mat.}
+\rules{};\ability{\abilityName Call the Hive: \abilityCost{ 5}
+Put minion from personal deck into play};
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Time Sweeper \image{Foe2} \type{Foe}};
+\setup{}
+\rules{};\ability{\abilityName Call the Hive: \abilityCost{ 4}
+Reveal the top 3 cards, put a minion revealed this way into play. Return the rest in any order. If no minion revealed, Foe gains 3 charges.};
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Jeweled Wrath \image{Foe3} \type{Foe}};
+\setup{Place the Cursed Shard cards above this mat to form the Cursed Shard supply pile.}
+\rules{};\ability{\abilityName Jeweled Rot: \abilityCost{ 4}
+The player with the fewest gems in hand gains a Cursed Shard, places it into their hand, and suffers 1 damage for each gem in hand.};
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Glutton's Apprentice \image{Foe4} \type{Foe}};
+\setup{At the start of the game, destroy all but 1 card in any supply pile. Foe gains 2 charges.}
+\rules{If Foe would destroy a card in a supply pile and cannot, Gravehold suffers 3 damage instead.};\ability{\abilityName Bloody Conduit: \abilityCost{ 4}
+Destroy three cards in any supply pile.};
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Dalana, the Healer \image{Friend1} \type{Friend}};
+\setup{No special setup.}
+\rules{};\ability{\abilityName Bandage: \abilityCost{ 6}
+Focus any player's breach. Each player gains 1 life for each opened breach they have.};
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Sahala \image{Friend2} \type{Friend}};
+\setup{}
+\rules{};\ability{\abilityName Starlight Infusion: \abilityCost{ 4}
+Place a token on a breach that doesn't have one. Spells cast from a breach with a token deals +2 damage.};
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Qu, the badass \image{Friend3} \type{Friend}};
+\setup{Token starts on build side}
+\rules{Token says: DESTROYER token gives +2 damage to all spells cast that turn. BUILDER token gives +1 money whenever money is gained. At end of turn, flip token and return to this mat};\ability{\abilityName DESTROY or build: \abilityCost{ 4}
+Give a player the token. };
+
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Joanna, the Merchant \image{Friend4} \type{Friend}};
+\setup{}
+\rules{};\ability{\abilityName Barter: \abilityCost{ 5}
+Shuffle any player's turn order card in the turn order discard pile into the turn order deck.};
+
+\end{tikzpicture}
+
+
+ \end{center} 
+ \end{document}

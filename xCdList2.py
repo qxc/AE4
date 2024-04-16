@@ -1,7 +1,7 @@
 import csv
 import subprocess
 
-def createCard(name, cardType, cost, text, image,hp, shield):
+def createCard(name, cardType, cost, text, image,hp, shield, sync):
     code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"""
     code += "\cardimage{" + image + "} \n"
     code += "\cardtitle{" + name+ "} \n"
@@ -12,6 +12,7 @@ def createCard(name, cardType, cost, text, image,hp, shield):
         code += "\cardhp{" + hp + "} \n"
     if shield != "":
         code += "\cardshield{" + shield + "} \n"
+    code += "\sync{" + sync + "}\n"
     code += "\end{tikzpicture}\n\hspace{-4mm}\n"
     return code
 
@@ -39,6 +40,7 @@ def processCards(fileName = "cdList2.csv"):
             text = row['description']
             hp = row['HP']
             shield = row['Shield']
+            sync = row ['Sync']
 
             if cardType == "":
                 continue
@@ -47,7 +49,7 @@ def processCards(fileName = "cdList2.csv"):
             if cardType == "Story":
                 card = createStoryCard(name, text)
             else:
-                card = createCard(name, cardType, cost, text,image,hp, shield)
+                card = createCard(name, cardType, cost, text,image,hp, shield, sync)
             number = row['supply'] #this line and the next are the ones i changed
             f.write(card*int(number))
     f.write("\end{center}\n\end{document}")

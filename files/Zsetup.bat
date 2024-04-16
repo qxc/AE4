@@ -1,1 +1,0 @@
-mkdir "C:\Users\coldf_000\Dropbox\backup\latex\AE4\files\%date:/= %"
