@@ -1,7 +1,7 @@
 import csv
 import subprocess
 # Loading the pyPdf Library
-from PyPDF2 import PdfFileWriter, PdfFileReader
+from PyPDF2 import PdfWriter, PdfReader
 
 
 def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image):
@@ -81,10 +81,10 @@ def processCards(fileName = "cSheet.csv"):
             pdfFiles.append(pdfName)
             #f.write(char)
     # Creating an object where pdf pages are appended to
-    output = PdfFileWriter()
+    output = PdfWriter()
     for pdfName in pdfFiles:
         # Appending two pdf-pages from two different files
-        append_pdf(PdfFileReader(open(pdfName,"rb")),output)
+        append_pdf(PdfReader(open(pdfName,"rb")),output)
     # Writing all the collected pages to a file
     finalFileName="ZxcharSheetsAll.pdf"
     output.write(open(finalFileName,"wb"))
@@ -150,7 +150,7 @@ def compileFile(fileName):
 
 # Creating a routine that appends files to the output file
 def append_pdf(input,output):
-    [output.addPage(input.getPage(page_num)) for page_num in range(input.numPages)]
+    [output.add_page(input.pages[page_num]) for page_num in range(len(input.pages))]
 
 
 processCards()

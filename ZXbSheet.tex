@@ -26,11 +26,21 @@
 \pagestyle{empty}\begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Garun \image{N7} \hp{60}};
-\setup{Replace a relic in the supply with Dissolver. Garun starts the game with 4 nemesis tokens. }
-\unleash{If this has 0 nemesis tokens, remove 1 power token from Regeneration. Otherwise, advance the Doomsday track.}
+\name{Void Kris \image{N6} \hp{30}};
+\setup{Replace a spell and relic supply pile with the Void Spell, Relic. These are in the supply. Place 4/3/2/1 crystals from the box next to this mat to form the Void deck. This is not a supply pile. Cards can only be placed into the Void or removed from it when effects specify to do so.}
+\unleash{Gain 1 nemesis token.}
 \difficulty{}
-\rules{When a player deals damage to Garun while Garun has a nemesis token, reduce that damage to 1. When Garun has 0 nemesis tokens, reset the Doomsday track to start, place the Regeneration power.};\diffR{};
+\rules{A card's strength in the void is equal to its cost, minmum 1. The strength of the void is the sum of the strength of all the cards in the void. \newline When a player deals damage to Void Kris with a source besides the Void spell, that player deals 0 damage instead. When a player deals damage to Void Kris with a spell besides the Void spell, that player may place the cast spell on top of the Void deck. At the end of the nemesis turn, if the nemesis has 5 or more nemesis tokens, the nemesis loses 5 nemesis tokens and the players collectively gain eight cards from the Void. When a player would gain a card from the Void and can't, Gravehold suffers 5 damage instead.};\diffR{};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Garun \image{N7} \hp{99}};
+\setup{Replace a relic supply pile in the supply with Dissolver. Garun gains 4 nemesis tokens. }
+\unleash{If this has 0 nemesis tokens, remove 1 power token from Regeneration. Otherwise, advance the World Splitter track.}
+\difficulty{}
+\rules{When a player deals damage to Garun while Garun has a nemesis token, reduce that damage to 1. Double all damage dealt to Garun while Garun has 0 nemesis tokens. When Garun has 0 nemesis tokens, reset the World Splitter track to start, place the Regeneration power into play. };\diffR{};
 \end{tikzpicture}
 
 
