@@ -18,6 +18,9 @@ def createCard(name, cardType, cost, text, image,hp, shield, devCost, sync):
     code += "\end{tikzpicture}\n\hspace{-4mm}\n"
     return code
 
+def replaceText(text, charsToRemove):
+    return text.replace(charsToRemove, "")
+
 def createStoryCard(name, text):
     code = "\\begin{tikzpicture} \n\cardbackground{""} \n"
     code += "\cardtitle{" + name+ "} \n"
@@ -39,12 +42,18 @@ def processCards(fileName = "cdList2.csv"):
             cost = row['cost']
             cardType = row['type'].capitalize()
             image = row['Image']
-            text = row['description']
+            originalText = row['description']
+            text1 = replaceText(originalText, "@__")
+            text2 = replaceText(text1, "A@")
+            text = text2
             hp = row['HP']
             shield = row['Shield']
             devCost = row['Development Cost']
             sync = row ['Sync']
+            number = row['supply']
 
+            if number is "":
+                continue
             if cardType == "":
                 continue
             if row['Card Status'] == "":
@@ -53,7 +62,6 @@ def processCards(fileName = "cdList2.csv"):
                 card = createStoryCard(name, text)
             else:
                 card = createCard(name, cardType, cost, text,image, hp, shield, devCost, sync)
-            number = row['supply'] #this line and the next are the ones i changed
             f.write(card*int(number))
     f.write("\end{center}\n\end{document}")
     f.close()
