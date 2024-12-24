@@ -1,5 +1,6 @@
 import csv
 import subprocess
+import os
 
 def createCard(name, cardType, cost, text, image,hp, shield, devCost, sync):
     code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"
@@ -29,12 +30,13 @@ def createStoryCard(name, text):
 def replaceText(text, charsToRemove):
     return text.replace(charsToRemove, "")
     
-def processCards(fileName = "cdList.csv"):
-    baseFile = "ZXcList"
+def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     texFile = baseFile + ".tex"
     pdfFile = baseFile + ".pdf"
     f = open(texFile, "w")
     f.write(makeHeader())
+    if not os.path.exists(fileName):
+        return
     with open(fileName) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
@@ -52,7 +54,7 @@ def processCards(fileName = "cdList.csv"):
             sync = row ['Sync']
             number = row['supply']
 
-            if number is "":
+            if number == "":
                 continue
             if cardType == "":
                 continue
@@ -79,4 +81,12 @@ def compileFile(fileName):
     proc=subprocess.Popen(['pdflatex',fileName])
     proc.communicate()
 
-processCards()
+def multiProcessor():
+    baseFile = "ZXcList"
+    fileName = "cdList"
+    numFiles = input("Number of files to run:? ")
+    for i in range(int(numFiles)):
+        processCards(baseFile+str(i), fileName+str(i)+".csv")
+        print(fileName+str(i)+".csv")
+
+multiProcessor()
