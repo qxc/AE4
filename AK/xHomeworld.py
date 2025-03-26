@@ -2,15 +2,13 @@ import csv
 import subprocess
 import os
 
-def createCard(name, cardType, cost, text, image,hp, shield, devCost, sync):
-    code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"
+def createCard(name, powerCost, text, image, hp, shield, sync):
+    code = "\\begin{tikzpicture} \n"
     code += "\cardimage{" + image + "} \n"
     code += "\cardtitle{" + name+ "} \n"
     code += "\cardborder{} \n"
     code += "\cardcontent{" + text + "} \n"
-    code += "\cardprice{" + str(cost) + "} \n"
-    if devCost != "":
-        code += "\carddevcost{" + devCost + "} \n"
+    code += "\cardprice{" + str(powerCost) + "} \n"
     if hp != "":
         code += "\cardhp{" + hp + "} \n"
     if shield != "":
@@ -30,7 +28,7 @@ def createStoryCard(name, text):
 def replaceText(text, charsToRemove):
     return text.replace(charsToRemove, "")
 
-def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
+def processCards(baseFile = "ZXhwList", fileName = "hwList.csv"):
     texFile = baseFile + ".tex"
     pdfFile = baseFile + ".pdf"
     f = open(texFile, "w")
@@ -40,26 +38,25 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     with open(fileName) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            name = row['Name Of Card']
-            cost = row['Cost']
-            cardType = row['Type'].capitalize()
-            image = row['Image']
-            originalText = row['Description']
-            text1 = replaceText(originalText, "@__")
-            text2 = replaceText(text1, "A@")
-            text = text2
+            name = row['Name']
             try:
-                hp = row['HP']
+                powerCost = row['Power Cost']
+            except:
+                powerCost = ""
+            image = row['Image']
+            originalText = row['Power Ability']
+            text1 = originalText.replace("@__", "\\newline ")
+            text2 = replaceText(text1, "A@")
+            text3 = text2.replace("@6", "\Money ")
+            text = text3
+            try:
+                hp = row['Health']
             except:
                 hp = ""
             try:
                 shield = row['Shield']
             except:
                 shield = ""
-            try:
-                devCost = row['Development Cost']
-            except:
-                devCost = ""
             try:
                 sync = row ['Sync']
             except:
@@ -70,14 +67,9 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 number = 1
             if number == "":
                 continue
-            if cardType == "":
-                continue
             if row['Card Status'] == "":
                 continue
-            if cardType == "Story":
-                card = createStoryCard(name, text)
-            else:
-                card = createCard(name, cardType, cost, text,image, hp, shield, devCost, sync)
+            card = createCard(name, powerCost, text, image, hp, shield, sync)
             f.write(card*int(number))
     f.write("\end{center}\n\end{document}")
     f.close()
@@ -96,11 +88,9 @@ def compileFile(fileName):
     proc.communicate()
 
 def multiProcessor():
-    baseFile = "ZXcList"
-    fileName = "cdList"
-    numFiles = input("Number of files to run:? ")
-    for i in range(int(numFiles)):
-        processCards(baseFile+str(i), fileName+str(i)+".csv")
-        print(fileName+str(i)+".csv")
+    baseFile = "ZXhwList"
+    fileName = "hwList"
+    processCards(baseFile, fileName+".csv")
+    print(fileName+".csv")
 
 multiProcessor()

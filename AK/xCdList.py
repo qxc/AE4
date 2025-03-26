@@ -2,20 +2,28 @@ import csv
 import subprocess
 import os
 
-def createCard(name, cardType, cost, text, image,hp, shield, devCost, sync):
+def createCard(name, cardType, cost, text, image,hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount):
     code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"
     code += "\cardimage{" + image + "} \n"
     code += "\cardtitle{" + name+ "} \n"
     code += "\cardborder{} \n"
     code += "\cardcontent{" + text + "} \n"
     code += "\cardprice{" + str(cost) + "} \n"
-    if devCost != "":
-        code += "\carddevcost{" + devCost + "} \n"
+    if levelNum != "":
+        code += "\levelNum{" + str(levelNum) + "} \n"
+    if minionBonus != "":
+        code += "\minionBonus{" + str(minionBonus) + "} \n"
     if hp != "":
         code += "\cardhp{" + hp + "} \n"
     if shield != "":
         code += "\cardshield{" + shield + "} \n"
     code += "\sync{" + sync + "}\n"
+    if afterburn != "":
+        code += "\myburn{" + afterburn + "} \n"
+    if supplyDeck != "":
+        code += "\supplyDeck{" + supplyDeck + "} \n"
+    if playerCount != "":
+        code += "\playerCount{" + playerCount + "} \n"
     code += "\end{tikzpicture}\n\hspace{-4mm}\n"
     return code
 
@@ -40,14 +48,30 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     with open(fileName) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
+            if row['Card Status'] == "":
+                continue
             name = row['Name Of Card']
-            cost = row['Cost']
-            cardType = row['Type'].capitalize()
+            try:
+                cost = row['Cost']
+            except:
+                cost = ""
+            try:
+                cardType = row['Type'].capitalize()
+            except:
+                cardType = ""
             image = row['Image']
             originalText = row['Description']
-            text1 = replaceText(originalText, "@__")
+            text1 = originalText.replace("@__", "\\newline ")
             text2 = replaceText(text1, "A@")
-            text = text2
+            text3 = text2.replace("@6", "\Money ")
+            text4 = text3.replace(" newline", " \\newline")
+            text = text4
+            try:
+                supplyDeck = row['Supply Deck']
+            except: supplyDeck = ""
+            try:
+                afterburn = row['Afterburn Text']
+            except: afterburn = ""
             try:
                 hp = row['HP']
             except:
@@ -57,10 +81,6 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
             except:
                 shield = ""
             try:
-                devCost = row['Development Cost']
-            except:
-                devCost = ""
-            try:
                 sync = row ['Sync']
             except:
                 sync = ""
@@ -68,16 +88,21 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 number = row['Supply']
             except:
                 number = 1
+            try:
+                levelNum = row['LevelNum']
+            except:
+                levelNum = ""
+            try:
+                minionBonus = row['Minion Bonus']
+            except:
+                minionBonus = ""
+            try:
+                playerCount = row['Player Count']
+            except:
+                playerCount = ""
             if number == "":
                 continue
-            if cardType == "":
-                continue
-            if row['Card Status'] == "":
-                continue
-            if cardType == "Story":
-                card = createStoryCard(name, text)
-            else:
-                card = createCard(name, cardType, cost, text,image, hp, shield, devCost, sync)
+            card = createCard(name, cardType, cost, text, image, hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount)
             f.write(card*int(number))
     f.write("\end{center}\n\end{document}")
     f.close()

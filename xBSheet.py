@@ -24,13 +24,22 @@ def processBoss(fileName = "bSheet.csv"):
         reader = csv.DictReader(csvfile)
         for row in reader:
             name = row['Name']
-            unleash = row['Unleash']
+            try:
+                unleash = row['Unleash']
+            except:
+                unleash = ""
             setup = row['Setup']
             rules = row['Rules']
-            hp = row['HP']
+            hp = row['Health']
             image = row['Image']
-            difficulty = row['Difficulty']
-            diffR = row['Difficulty Rating']
+            try:
+                difficulty = row['Difficulty']
+            except:
+                difficulty = ""
+            try:
+                diffR = row['Difficulty Rating']
+            except:
+                diffR = ""
             if row['Card Status'] == "":
                 continue
             char = createBoss(name, unleash, setup, rules, hp, difficulty, image, diffR)
