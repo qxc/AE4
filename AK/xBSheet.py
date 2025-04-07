@@ -14,6 +14,12 @@ def createBoss(name, setup, rules, hp, image, expDifficulty, nightDifficulty, ex
     code += "\n\end{tikzpicture}\n\n"
     return code
 
+def defaultProcess(text):
+    newText1 = text.replace("@6", "\Money ")
+    newText2 = newText1.replace(" newline", " \\newline")
+    newText3 = newText2.replace("@__", "\\newline ")
+    return newText3
+
 def processBoss(fileName = "bSheet.csv"):
     baseFile = "ZXbSheet"
     texFile = baseFile+".tex"
@@ -28,8 +34,10 @@ def processBoss(fileName = "bSheet.csv"):
                 unleash = row['Unleash']
             except:
                 unleash = ""
-            setup = row['Setup']
-            rules = row['Rules']
+            setup1 = row['Setup']
+            setup = defaultProcess(setup1)
+            rules1 = row['Rules']
+            rules = defaultProcess(rules1)
             hp = row['Health']
             image = row['Image']
             try:

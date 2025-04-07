@@ -41,7 +41,10 @@ def processCards(fileName = "cSheet.csv"):
             deck.append(row['D5'])
             deck = processStart(deck,startCard, startCard2)
             abilityName = row['Ability Name']
-            abilityDescription = row['Ability Description']
+            abilityDescription1 = row['Ability Description']
+            abilityDescription2 = abilityDescription1.replace("@6", "\Money ")
+            abilityDescription = abilityDescription2.replace(" newline", " \\newline")
+            
             abilityCost = row['Ability Cost']
             notes = row['Extra Rules']
             image = row['Image']

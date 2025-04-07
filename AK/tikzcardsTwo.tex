@@ -62,7 +62,7 @@
 \newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
 \newcommand{\Health}{\includegraphics[height = .4cm]{heart}}
 \newcommand{\Shield}{\includegraphics[height = .4cm]{shield}}
-\newcommand{\Afterburn}{\includegraphics[height = .4cm]{afterburn}}
+\newcommand{\Afterburn}{\includegraphics[height = .6cm]{afterburn}}
 
 %   Rahmen der Karte
 %\newcommand{\cardborder}{
@@ -96,7 +96,7 @@
 }
 \newcommand{\cardcontent}[1]{
     %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
-		\node[text width=4.75cm, below right] at (\stripwidth*1.02, 0.535*\cardheight) {\textrm{#1}};
+		\node[text width=4.4cm, below right] at (\stripwidth*.95, 0.535*\cardheight) {\textrm{#1}};
 }
 
 \newcommand{\tier}[1]{
@@ -155,7 +155,7 @@
 }
 
 \newcommand{\myburn}[1]{
-	\node[text width=7.5cm, rotate=-90] at (\cardwidth*.92, \cardheight*.46) {\Afterburn \tiny{#1}};
+	\node[text width=7.5cm, rotate=-90] at (\cardwidth*.90, \cardheight*.46) {\Afterburn \scriptsize{#1}};
 }
 
 \newcommand{\supplyDeck}[1]{

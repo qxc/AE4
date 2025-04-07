@@ -2,10 +2,13 @@ import csv
 import subprocess
 import os
 
-def createCard(name, cardType, cost, text, image,hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount):
+def createCard(name, cardType, cost, text, image,hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount, levelHeader):
     code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"
     code += "\cardimage{" + image + "} \n"
-    code += "\cardtitle{" + name+ "} \n"
+    if levelHeader != "":
+        code += "\cardtitle{" + name + "\n" + levelHeader+ "} \n"
+    else:
+        code += "\cardtitle{" + name+ "} \n"
     code += "\cardborder{} \n"
     code += "\cardcontent{" + text + "} \n"
     code += "\cardprice{" + str(cost) + "} \n"
@@ -38,9 +41,16 @@ def createStoryCard(name, text):
 def replaceText(text, charsToRemove):
     return text.replace(charsToRemove, "")
 
+def defaultProcess(text):
+    newText1 = text.replace("@6", "\Money ")
+    newText2 = newText1.replace(" newline", " \\newline")
+    newText3 = newText2.replace("@__", "\\newline ")
+    return newText3
+
 def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     texFile = baseFile + ".tex"
     pdfFile = baseFile + ".pdf"
+    numCards = 0
     f = open(texFile, "w")
     f.write(makeHeader())
     if not os.path.exists(fileName):
@@ -61,17 +71,15 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 cardType = ""
             image = row['Image']
             originalText = row['Description']
-            text1 = originalText.replace("@__", "\\newline ")
-            text2 = replaceText(text1, "A@")
-            text3 = text2.replace("@6", "\Money ")
-            text4 = text3.replace(" newline", " \\newline")
-            text = text4
+            text = defaultProcess(originalText)
             try:
                 supplyDeck = row['Supply Deck']
             except: supplyDeck = ""
             try:
-                afterburn = row['Afterburn Text']
-            except: afterburn = ""
+                afterburn1 = row['Afterburn Text']
+                afterburn = defaultProcess(afterburn1)
+            except:
+                afterburn = ""
             try:
                 hp = row['HP']
             except:
@@ -100,10 +108,18 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 playerCount = row['Player Count']
             except:
                 playerCount = ""
+            try:
+                levelHeader = row['Level Header']
+            except:
+                levelHeader = ""
             if number == "":
                 continue
-            card = createCard(name, cardType, cost, text, image, hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount)
+            card = createCard(name, cardType, cost, text, image, hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount, levelHeader)
             f.write(card*int(number))
+            numCards += int(number)
+    if numCards % 3 == 2:
+        card = createCard("Blank", "", "", "","", "", "", "", "", "", "", "", "", "")
+        f.write(card)
     f.write("\end{center}\n\end{document}")
     f.close()
     compileFile(texFile)
