@@ -2,20 +2,31 @@ import csv
 import subprocess
 import os
 
-def createCard(name, cardType, cost, text, image,hp, shield, devCost, sync):
+def createCard(name, cardType, cost, text, image,hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount, levelHeader):
     code = "\\begin{tikzpicture} \n\cardbackground{" +cardType+ "} \n"
     code += "\cardimage{" + image + "} \n"
-    code += "\cardtitle{" + name+ "} \n"
+    if levelHeader != "":
+        code += "\cardtitle{" + name + "\n" + levelHeader+ "} \n"
+    else:
+        code += "\cardtitle{" + name+ "} \n"
     code += "\cardborder{} \n"
     code += "\cardcontent{" + text + "} \n"
     code += "\cardprice{" + str(cost) + "} \n"
-    if devCost != "":
-        code += "\carddevcost{" + devCost + "} \n"
+    if levelNum != "":
+        code += "\levelNum{" + str(levelNum) + "} \n"
+    if minionBonus != "":
+        code += "\minionBonus{" + str(minionBonus) + "} \n"
     if hp != "":
         code += "\cardhp{" + hp + "} \n"
     if shield != "":
         code += "\cardshield{" + shield + "} \n"
     code += "\sync{" + sync + "}\n"
+    if afterburn != "":
+        code += "\myburn{" + afterburn + "} \n"
+    if supplyDeck != "":
+        code += "\supplyDeck{" + supplyDeck + "} \n"
+    if playerCount != "":
+        code += "\playerCount{" + playerCount + "} \n"
     code += "\end{tikzpicture}\n\hspace{-4mm}\n"
     return code
 
@@ -30,9 +41,16 @@ def createStoryCard(name, text):
 def replaceText(text, charsToRemove):
     return text.replace(charsToRemove, "")
 
+def defaultProcess(text):
+    newText1 = text.replace("@6", "\Money ")
+    newText2 = newText1.replace(" newline", " \\newline")
+    newText3 = newText2.replace("@__", "\\newline ")
+    return newText3
+
 def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     texFile = baseFile + ".tex"
     pdfFile = baseFile + ".pdf"
+    numCards = 0
     f = open(texFile, "w")
     f.write(makeHeader())
     if not os.path.exists(fileName):
@@ -40,14 +58,28 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     with open(fileName) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
+            if row['Card Status'] == "":
+                continue
             name = row['Name Of Card']
-            cost = row['Cost']
-            cardType = row['Type'].capitalize()
+            try:
+                cost = row['Cost']
+            except:
+                cost = ""
+            try:
+                cardType = row['Type'].capitalize()
+            except:
+                cardType = ""
             image = row['Image']
             originalText = row['Description']
-            text1 = replaceText(originalText, "@__")
-            text2 = replaceText(text1, "A@")
-            text = text2
+            text = defaultProcess(originalText)
+            try:
+                supplyDeck = row['Supply Deck']
+            except: supplyDeck = ""
+            try:
+                afterburn1 = row['Afterburn Text']
+                afterburn = defaultProcess(afterburn1)
+            except:
+                afterburn = ""
             try:
                 hp = row['HP']
             except:
@@ -57,10 +89,6 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
             except:
                 shield = ""
             try:
-                devCost = row['Development Cost']
-            except:
-                devCost = ""
-            try:
                 sync = row ['Sync']
             except:
                 sync = ""
@@ -68,17 +96,30 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 number = row['Supply']
             except:
                 number = 1
+            try:
+                levelNum = row['LevelNum']
+            except:
+                levelNum = ""
+            try:
+                minionBonus = row['Minion Bonus']
+            except:
+                minionBonus = ""
+            try:
+                playerCount = row['Player Count']
+            except:
+                playerCount = ""
+            try:
+                levelHeader = row['Level Header']
+            except:
+                levelHeader = ""
             if number == "":
                 continue
-            if cardType == "":
-                continue
-            if row['Card Status'] == "":
-                continue
-            if cardType == "Story":
-                card = createStoryCard(name, text)
-            else:
-                card = createCard(name, cardType, cost, text,image, hp, shield, devCost, sync)
+            card = createCard(name, cardType, cost, text, image, hp, shield, sync, afterburn, supplyDeck, levelNum, minionBonus, playerCount, levelHeader)
             f.write(card*int(number))
+            numCards += int(number)
+    if numCards % 3 == 2:
+        card = createCard("Blank", "", "", "","", "", "", "", "", "", "", "", "", "")
+        f.write(card)
     f.write("\end{center}\n\end{document}")
     f.close()
     compileFile(texFile)

@@ -1,0 +1,30 @@
+\nonstopmode
+\documentclass{article}
+\input{libs.tex}
+\input{colors.tex}
+\usepackage[none]{hyphenat}
+\input{tikzcardsTwo.tex}
+\input{tikzBoss.tex}
+\begin{document}
+\begin{center}
+\pagestyle{empty}\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.45) rectangle (0, \cardheight); 
+\name{Anissa \image{n4} \hp{50}};
+\setup{Other than replacing The Cruise Kaiju, keep everything else the same. 
+If there are 2/3/4/5 Aid cards in the Aid discard pile, place Anissa's level 2/3/4/5 token into play.
+Then, Flip this mat over.}
+\rules{The Anissa turn order card is a third Villain turn. When the Anissa turn order card is drawn, resolve a Villain turn.};\expDifficulty{};\nightDifficulty{};\exhaustEffect{Shuffle a Villain turn order card in the turn order discard pile into the turn order deck.};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.45) rectangle (0, \cardheight); 
+\name{Thula \image{n10} \hp{50}};
+\setup{Place Vidor and Lucan next to this mat.}
+\rules{While Vidor or Lucan are in play, prevent damage to Thula. Vidor and Lucan cannot be defeated through "Defeat a minion" effects.};\expDifficulty{};\nightDifficulty{};\exhaustEffect{Discard the top card of the nemesis deck.};
+\end{tikzpicture}
+
+
+ \end{center} 
+ \end{document}

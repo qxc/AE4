@@ -1,0 +1,170 @@
+%   COMMANDS ZUM ZUSAMMENBAUEN DER KARTEN
+%   ---------------------------------------
+
+\newcommand{\And}{\textbf{AND} \newline}
+\newcommand{\Cast}{\textbf{Cast}}
+\newcommand{\Defeated}{\textbf{DEFEATED}}
+\newcommand{\Persistent}{\textbf{PERSISTENT}}
+\newcommand{\Discard}{\textbf{DISCARD}}
+\newcommand{\To}{\textbf{TO~}}
+\newcommand{\Power}{\textbf{POWER }}
+\newcommand{\Immediately}{\textbf{IMMEDIATELY}}
+\newcommand{\Evolve}{\textbf{EVOLVE}}
+\newcommand{\BloodMagic}{\textbf{Blood Magic}}
+\newcommand{\Money}{\includegraphics[height = .4cm]{money}}
+\newcommand{\Or}{\textbf{OR}}
+\newcommand{\Recall}{\textbf{RECALL}}
+\newcommand{\Link}{\newline\textbf{Link:} Two spells with link may be prepped to the same breach.}
+\newcommand{\Name}{\hspace{20mm}}
+\newcommand{\Echo}{\textbf{Echo}} %(Cast this spell without discarding it, then cast it again.)}
+\newcommand{\Poison}{\textbf{Poison} }%(When a poisoned enemy is dealt damage, deal 1 additional damage per poison and remove 1 poison token.) }
+\newcommand{\Overkill}{\textbf{Overkill}}%(If this kills a minion, deal the remaining damage to the nemesis.)}
+\newcommand{\Energized}{\textbf{Energized}}% If this deals more than its base damage, }
+\newcommand{\Countdown}{\textbf{Countdown}}% If this deals more than its base damage, }
+\newcommand{\Attach}{\textbf{Attach} }% If this deals more than its base damage, }
+\newcommand{\Shadow}{\textbf{Shadow:}} %Place a Shadow token on a minion. Prevent all damage dealt to a minion with a shadow token. Players can reduce a shadowed minion's life by spending \Money{}.}
+%   TikZ/PGF Settings für die Karten
+\pgfmathsetmacro{\cardwidth}{6}
+\pgfmathsetmacro{\cardheight}{8.5}
+\pgfmathsetmacro{\imagewidth}{\cardwidth}
+\pgfmathsetmacro{\imageheight}{0.75*\cardheight}
+\pgfmathsetmacro{\stripwidth}{0.7}
+\pgfmathsetmacro{\strippadding}{0.2}
+\pgfmathsetmacro{\textpadding}{0.1}
+\pgfmathsetmacro{\titley}{.94*\cardheight}
+\pgfmathsetmacro{\titlex}{2.15}
+
+
+
+%   Formen der einzelnen Kartenelemente/-bestandteile
+\def\shapeCard{(0,0) rectangle (\cardwidth,\cardheight)}
+\def\shapeLeftStripTop{(\strippadding,\cardheight/2+1) rectangle (\strippadding+\stripwidth,\cardheight-\strippadding-\strippadding-1)}
+\def\shapeLeftStripBot{(\strippadding,-0.2) rectangle (\strippadding+\stripwidth,\cardheight/2-3)}
+\def\shapeLeftStripShort{(\strippadding,\cardheight-\strippadding-1) rectangle (\strippadding+\stripwidth,\cardheight+0.2)}
+\def\shapeRightStripShort{(\cardwidth-\stripwidth-\strippadding,\cardheight-\strippadding-1) rectangle (\cardwidth-\strippadding,\cardheight+0.2)}
+\def\shapeTitleArea{(2*\strippadding+\stripwidth,\cardheight-\strippadding) rectangle (\cardwidth-2*\strippadding-\stripwidth,\cardheight-2*\stripwidth)}
+\def\shapeContentArea{(2*\strippadding+\stripwidth,0.5*\cardheight) rectangle (\cardwidth+0.2,-0.2)}
+
+
+%   Stylings für die Elemente definieren
+\tikzset{
+    %   runde Ecken für die Karten
+    cardcorners/.style={
+        rounded corners=0.2cm
+    },
+    %   runde Ecken für die "Fähnchen"
+    elementcorners/.style={
+        rounded corners=0.1cm
+    }
+}
+
+
+\newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
+\newcommand{\Health}{\includegraphics[height = .4cm]{heart}}
+\newcommand{\Shield}{\includegraphics[height = .4cm]{shield}}
+\newcommand{\Afterburn}{\includegraphics[height = .6cm]{afterburn}}
+
+%   Rahmen der Karte
+%\newcommand{\cardborder}{
+%    \draw[lightgray,cardcorners] \shapeCard;
+%}
+
+%   Hintergrund der Karte
+\newcommand{\cardbackground}[1]{
+		\clip[cardcorners] \shapeCard;
+    \node at (\cardwidth/2, \cardheight/2) {\includegraphics[height = 9.5cm]{#1}};
+}
+
+\newcommand{\attentioncardbackround}[1]{
+  \cardbackground{#1}
+  % Add a pattern to the cards
+  \draw[pattern=dots](0, \cardheight/2) rectangle (\cardwidth, \cardheight);
+}
+
+\newcommand{\cardtitle}[1]{
+    \node[text width=2.75cm, below right] at (\titlex,\titley) {
+        
+       \shadowtext{\parbox{2.8cm}{\begin{spacing}{1.2}\textbf{\hspace{-.5cm}\uppercase{\large #1}}\end{spacing}}}
+        
+    };
+}
+\newcommand{\cardstorycontent}[1]{
+	\node[text width=4.7cm, below right] at (\stripwidth*1.2, .85*\cardheight) {\textrm{#1}};
+}
+\newcommand{\evolve}[1]{
+	\node[text width=4.4cm, below right] at (\cardwidth/12, 0.52*\cardheight) {\footnotesize{#1}};
+}
+\newcommand{\cardcontent}[1]{
+    %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
+		\node[text width=4.4cm, below right] at (\stripwidth*.95, 0.535*\cardheight) {\textrm{#1}};
+}
+
+\newcommand{\tier}[1]{
+    %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
+		\node at (\cardwidth/8, \cardheight/12) {\tiny{#1}};
+}
+
+\newcommand{\levelNum}[1]{
+    %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
+		\node at (\cardwidth/8, \cardheight*.8) {\small{#1}};
+}
+
+\newcommand{\delay}[1]{
+		\node at (\cardwidth*.9, \cardheight/8) {#1};
+}
+\newcommand{\cardimage}[1]{
+	\node at (\cardwidth*.50, \cardheight*.67) {\includegraphics[height = 2cm]{#1}};
+}
+
+\newcommand{\cardprice}[1]{
+		%\pgfmathsetmacro{\x}{(2+#1)/12}
+		%\pgfmathsetmacro{\redvalue}{255-(45*\x*\x)}
+		%\pgfmathsetmacro{\greenvalue}{255-(85*\x*\x)}
+		%\pgfmathsetmacro{\bluevalue}{255*(1-\x)*(1-\x)}
+		\pgfmathsetmacro{\x}{(#1)/10}
+		\pgfmathsetmacro{\redvalue}{(1-\x)*(1-\x)*0+2*\x*(1-\x)*275+\x*\x*200}
+		\pgfmathsetmacro{\greenvalue}{(1-\x)*(1-\x)*100+2*\x*(1-\x)*275+\x*\x*100}
+		\pgfmathsetmacro{\bluevalue}{(1-\x)*(1-\x)*200+2*\x*(1-\x)*275+\x*\x*0}
+		%\definecolor{currentcolor}{RGB}{\redvalue, \greenvalue,\bluevalue}
+		\definecolor{currentcolor}{RGB}{255, 255,255}
+    %\node at (\stripwidth*1.8,\cardheight-.8*\stripwidth) {\InvMoney};
+		\node at (\stripwidth*1.7,\cardheight-1.1*\stripwidth) {\color{black} \textbf{\LARGE #1}}; %change black to currentcolor to get gradient back
+}
+
+\newcommand{\playerCount}[1]{
+	\node at (\cardwidth*.2,\cardheight*.92) {\textbf{\small #1}};
+}
+
+\newcommand{\carddevcost}[1]{
+		\node at (\cardwidth*.88,\cardheight-1.1*\stripwidth) {\color{black} \textbf{\small (#1)}};
+}
+
+\newcommand{\cardhp}[1]{
+		\node[left] at (\cardwidth*.93,\cardheight*.78) {\textbf{\Large #1}\Health};
+}
+\newcommand{\minionBonus}[1]{
+		\node[left] at (\cardwidth*.93,\cardheight*.78) {\textbf{\Large +#1}\Health};
+}
+
+\newcommand{\cardshield}[1]{
+		\node[left] at (\cardwidth*.92,\cardheight*.72) {\textbf{\Large #1}\Shield};
+}
+
+\newcommand{\sync}[1]{
+	\node at (\cardwidth*.86, \cardheight*.94) {\tiny{#1}};
+}
+
+\newcommand{\myburn}[1]{
+	\node[text width=7.5cm, rotate=-90] at (\cardwidth*.90, \cardheight*.46) {\Afterburn \scriptsize{#1}};
+}
+
+\newcommand{\supplyDeck}[1]{
+	\node at (\cardwidth*.80, \cardheight*.94) {\tiny{#1}};
+}
+
+
+\newcommand{\cardborder}{
+    \draw[black, cardcorners, ultra thick] \shapeCard;
+}
+
+
