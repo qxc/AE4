@@ -30,7 +30,7 @@ def processBoss(fileName = "bSheet.csv"):
                 unleash = ""
             setup = row['Setup']
             rules = row['Rules']
-            hp = row['Health']
+            hp = row['HP']
             image = row['Image']
             try:
                 difficulty = row['Difficulty']
