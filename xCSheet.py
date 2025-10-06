@@ -69,7 +69,8 @@ def processCards(fileName = "cSheet.csv"):
             breaches.append(row['B4'])
             breaches = processBreaches(breaches)
             abilityName = row['Ability Name']
-            abilityDescription = row['Ability Description']
+            abilityDescription0 = row['Ability Description']
+            abilityDescription = abilityDescription0.replace("newline", "\\newline")
             abilityCost = row['Ability Cost']
             notes = row['Notes']
             image = row['Image']
