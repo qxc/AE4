@@ -33,6 +33,7 @@ def replaceText(text, charsToRemove):
 def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
     texFile = baseFile + ".tex"
     pdfFile = baseFile + ".pdf"
+    numCards = 0
     f = open(texFile, "w")
     f.write(makeHeader())
     if not os.path.exists(fileName):
@@ -45,7 +46,7 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
             cardType = row['Type'].capitalize()
             image = row['Image']
             originalText = row['Description']
-            text1 = replaceText(originalText, "@__")
+            text1 = originalText.replace("@__", "\\newline")
             text2 = replaceText(text1, "A@")
             text = text2
             try:
@@ -79,6 +80,10 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
             else:
                 card = createCard(name, cardType, cost, text,image, hp, shield, devCost, sync)
             f.write(card*int(number))
+            numCards += int(number)
+    if numCards % 3 == 2:
+        card = createCard("Blank", "", "", "","", "", "", "", "")
+        f.write(card)
     f.write("\end{center}\n\end{document}")
     f.close()
     compileFile(texFile)
