@@ -26,36 +26,21 @@
 \pagestyle{empty}\begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-<<<<<<< Updated upstream
-\name{Earthmaker \image{N3} \hp{99}};
-\setup{Place the Elemental track next to this. Place 1 nemesis tokens in each row starting from the left.}
+\name{Sycorax \image{N3} \hp{70}};
+\setup{Place the Sycorax track next to this. Place 1 nemesis tokens in each row starting from the left.}
 \unleash{Remove a nemesis token from the right most covered space in a row on the track.}
 \difficulty{}
-\rules{When a player deals damage to the nemesis, and the row that matches the breach that spell was cast from is not full, divide that damage by 2, rounded up. Add a nemesis token to the leftmost empty space in the row that matches the breach that spell was cast from. If the damage is not associated with a I-IV breach, add it to any row. When a nemesis token is added to a space, the active player resolves the icon under that token. When the last nemesis token in a row is removed or a nemesis token would be removed but cannot, Gravehold suffers 3 damage.};\diffR{};
-=======
-\name{Ouroboros \image{N2} \hp{60}};
-\setup{Place the Ouroboros track next to this. Place the nemesis token on the start space.}
-\unleash{Move the nemesis token forward spaces equal to the magical intensity.}
-\difficulty{}
-\rules{When a player gains a card from the supply, place a nemesis token on an uncovered icon that matches that card's type. newline When the nemesis moves onto an uncovered space, resolve the effect of that space. When the nemesis would move on a covered space, remove the nemesis token and do not resolve that space's effect. newline When the nemesis moves onto a chute, it immediately moves inward one space. Movement is in a spiral going around toward the center. };\diffR{};
->>>>>>> Stashed changes
+\rules{When a player deals damage to the nemesis, and the row that matches the breach that spell was cast from is not full, divide that damage by 2, rounded up. Add a nemesis token to the leftmost empty space in the row that matches the breach that spell was cast from. If the damage is not associated with a I-IV breach, add it to any row. \newline When a nemesis token is added to a space, the active player resolves the icon under that token. \newline When the last nemesis token in a row is removed or a nemesis token would be removed but cannot, Gravehold suffers 3 damage.};\diffR{Battle1};
 \end{tikzpicture}
 
 \begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-<<<<<<< Updated upstream
-\name{The Constructor \image{N4} \hp{60}};
-\setup{Place the Fuse power into play. Place a card from the least expensive supply pile faceup next to this mat to form the construct deck. If playing with two players, destroy one card from the five least expensive supply piles.}
-\unleash{Place a supply card from any supply pile on top of the construct deck. Repeat this.}
+\name{Ouroboros \image{N2} \hp{70}};
+\setup{Place the Ouroboros track next to this. Place the nemesis token on the start space.}
+\unleash{Move the nemesis token forward spaces equal to the intensity.}
 \difficulty{}
-\rules{When The Constructor welds a golem: newline 1. If the construct deck is empty, place a card from any supply pile on top of the construct deck. newline 2. Place a Golem into play with two health per card in the construct deck. 3. Place a nemesis token on it for every two cards, rounded up, in the construct deck. newline  4. Destroy all cards in the construct deck. newline If the supply is empty, shuffle the destroyed cards that cost 1 \Money or more and deal them out evenly into 9 piles to reform the supply. };\diffR{};
-=======
-\name{Sycorax \image{N3} \hp{99}};
-\setup{Place the Sycorax track next to this. Place 1 nemesis tokens in each row starting from the left.}
-\unleash{Remove a nemesis token from the right most covered space in a row on the track.}
-\difficulty{}
-\rules{When a player deals damage to the nemesis, and the row that matches the breach that spell was cast from is not full, divide that damage by 2, rounded up. Add a nemesis token to the leftmost empty space in the row that matches the breach that spell was cast from. If the damage is not associated with a I-IV breach, add it to any row. newline When a nemesis token is added to a space, the active player resolves the icon under that token. newline When the last nemesis token in a row is removed or a nemesis token would be removed but cannot, Gravehold suffers 3 damage.};\diffR{};
+\rules{When a player gains a card, place a nemesis token on an uncovered icon that matches that card's type. \newline When the nemesis ends movement on an uncovered space, resolve the effect of that space. When the nemesis ends movement on a covered space, remove the nemesis token and do not resolve that space's effect. \newline When the nemesis ends movement on a chute, it immediately moves inward one space. Movement is in a spiral going around toward the center. When the nemesis moves onto the "return to start" space, place the nemesis token on the "start" space and continue moving it with whatever movement remains.};\diffR{Battle2};
 \end{tikzpicture}
 
 \begin{tikzpicture} 
@@ -63,64 +48,39 @@
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
 \name{The Shaper in Gold \image{N4} \hp{60}};
 \setup{Place the Fuse power into play. Place a card from the least expensive supply pile faceup next to this mat to form the construct deck. If playing with two players, destroy one card from the five least expensive supply piles.}
-\unleash{Place a supply card from any supply pile on top of the construct deck. Repeat this.}
+\unleash{Place a supply card from the least expensive supply pile on top of the construct deck. Repeat this.}
 \difficulty{}
-\rules{When The Shaper in Gold welds a golem: newline 1. If the construct deck is empty, place a card from any supply pile on top of the construct deck. newline 2. Place a Golem into play with two health per card in the construct deck. 3. Place a nemesis token on it for every two cards, rounded up, in the construct deck. newline  4. Destroy all cards in the construct deck. newline If the supply is empty, shuffle the destroyed cards that cost 1 \Money or more and deal them out evenly into 9 piles to reform the supply. };\diffR{};
->>>>>>> Stashed changes
+\rules{When The Shaper in Gold welds a golem: \newline 1. If the construct deck is empty, place a card from any supply pile on top of the construct deck. \newline 2. Place a Golem into play with two health per card in the construct deck. \newline 3. Place a nemesis token on it for every two cards, rounded up, in the construct deck. \newline 4. Destroy all cards in the construct deck. \newline If the supply is empty, shuffle the destroyed cards that cost 1 \Money or more and deal them out evenly into 9 piles to reform the supply. };\diffR{Battle3};
 \end{tikzpicture}
 
 \begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-<<<<<<< Updated upstream
-\name{Upsider \image{N5} \hp{70}};
-\setup{}
-\unleash{If the nemesis has 4 or less nemesis tokens, the nemesis gains 1 nemesis token. Otherwise, Any player or Gravehold suffers 2 damage.}
-\difficulty{}
-\rules{While the nemesis is polarized, when a player deals damage to the nemesis, increase that damage by 2. At the end of the nemesis turn, if the nemesis has three or more nemesis tokens it becomes polarized. At the start of the nemesis turn, if the nemesis has 0 nemesis tokens, it becomes unpolarized. During any player's main phase, that player may destroy a card that costs 1 \Money or more in hand. If the destroyed card costs 1-3 \Money, the nemesis loses 1 nemesis token. If the destroyed card costs 4 \Money or more, the nemesis loses 2 nemesis tokens instead. If the nemesis deck is empty, shuffle the tier 3 cards in the nemesis discard pile and place them facedown to reform the nemesis deck.};\diffR{};
-=======
-\name{Apex, the Slumbering \image{N5} \hp{70}};
-\setup{}
-\unleash{If the nemesis has 4 or less nemesis tokens, the nemesis gains 1 nemesis token. Otherwise, Any player or Gravehold suffers 2 damage.}
-\difficulty{}
-\rules{While the nemesis is polarized: 1. When it would draw a nemesis card, it draws an additional nemesis card. newline 2. When a player deals damage to the nemesis, increase that damage by 2. newline newline At the end of the nemesis turn, if the nemesis has three or more nemesis tokens it becomes polarized. At the start of the nemesis turn, if the nemesis has 0 nemesis tokens, it becomes unpolarized. newline During any player's main phase, that player may destroy a card that costs 1 \Money or more in hand. If the destroyed card costs 1-3 \Money, the nemesis loses 1 nemesis token. If the destroyed card costs 4 \Money or more, the nemesis loses 2 nemesis tokens instead. newline If the nemesis deck is empty, shuffle the tier 3 cards in the nemesis discard pile and place them facedown to reform the nemesis deck.};\diffR{};
->>>>>>> Stashed changes
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-<<<<<<< Updated upstream
-\name{Creeper \image{N7} \hp{*}};
-\setup{Place the Creeper board next to this. Place two spawners on the start spaces of the board. Unleash.}
-\unleash{Place a creep token as close to a spawner as possible. Repeat this twice.}
-\difficulty{}
-\rules{Creep tokens have health equal to the number of adjacent creep tokens/spawners and heal to full at the end of turn. If a connected component of creep is disconnected from a spawner, destroy it. Each spawner has 10 health. When a player deals damage to the nemesis, prevent that damage. When all spawners are defeated, the players win. When a player deals damage to a spawner that is surrounded by creep, prevent that damage. When creep is placed on an icon, resolve that icon's effect. When the board has no empty spaces, Gravehold is overrun and the players lose.};\diffR{};
-=======
 \name{System Collapse \image{N7} \hp{*}};
-\setup{Place the System board next to this. Place two portals on the start spaces of the board. Unleash.}
-\unleash{Place a void token as close to a portal as possible. Repeat this twice.}
+\setup{Place the System board next to this. Place two portal tokens on the start spaces of the board. Unleash.}
+\unleash{Place a void token as close to a portal token as possible. Repeat this twice.}
 \difficulty{}
-\rules{Void tokens have health equal to the number of adjacent void tokens/portals and heal to full at the end of turn. newline If a connected component of void is disconnected from a portal, destroy it. newliine Each portal has 10 health. When a player deals damage to a portal that is surrounded by void, prevent that damage. When a player deals damage to the nemesis, prevent that damage. newline When void is placed on an icon, resolve that icon's effect. newline When all portals are defeated, the players win.  When the board has no empty spaces, the System is overrun and the players lose.};\diffR{};
->>>>>>> Stashed changes
+\rules{Void tokens have health equal to the number of adjacent void/portal tokens and heal to full at the end of turn. \newline If a void token is ever disconnected from all portal tokens, destroy it. \newline Each portal token has 10 health. When a player deals damage to a portal token that has no empty spaces adjacent to it, prevent that damage. When a player deals damage to the nemesis, prevent that damage. \newline When a void or portal token is placed on an icon, resolve that icon's effect. \newline When the board has no portal tokens on it, the players win. \newline When the board has no empty spaces, the System is overrun and the players lose.};\diffR{Battle4};
 \end{tikzpicture}
 
 \begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-<<<<<<< Updated upstream
-\name{The Bull \image{N8} \hp{40}};
-\setup{Place the Bull track next to this. Place the nemesis on the starting space. Place two boulders on the board on the starting spaces. Place Enrage in play.}
-\unleash{Remove a power token from Enrage.}
-\difficulty{}
-\rules{When a player deals damage to the nemesis, prevent that damage and advance the cave-in track by a number of spaces equal to the damage done. When the nemesis rushes, if it can reach bait in a straight line, it moves toward the bait, stopping when it reaches a boulder or the edge of the board. Otherwise, the nemesis moves toward the edge of the board that's furthest away and not blocked by a boulder. If the nemesis cannot reach the edge of the board, it moves toward the closest boulder instead. If the nemesis reaches the edge of the board, Gravehold suffers 1 damage per space traveled (minimum 1). If it hit a boulder, the nemesis takes 2 damage per space traveled. When the nemesis ends a rush, destroy each adjacent boulder. If the nemesis moves 0 spaces from a rush, destroy each boulder in its row and column. During a player's main phase, they may lose 2 charges to place a bait on an unoccupied space. When the nemesis moves over bait, destroy that bait. Instead of placing boulders on the board, players may drop a boulder on the nemesis, dealing 2 damage to it and destroying the boulder.};\diffR{};
-=======
 \name{Sound and Fury \image{N8} \hp{40}};
-\setup{Place the Fury board next to this. Place the nemesis on the starting space. Place two boulders on the board on the starting spaces. Place Enrage in play.}
+\setup{Place the Fury board next to this. Place the nemesis on the starting space. Place a boulder on each boulder starting space. Place Enrage in play.}
 \unleash{Remove a power token from Enrage.}
 \difficulty{}
-\rules{When a player deals damage to the nemesis, prevent that damage and advance the cave-in track by a number of spaces equal to the damage done. newline When the nemesis rushes, if it can reach bait in a straight line, it moves toward the bait, stopping when it reaches a boulder or the edge of the board. Otherwise, the nemesis moves toward the edge of the board that's furthest away and not blocked by a boulder. If the nemesis cannot reach the edge of the board, it moves toward the closest boulder instead. newline If the nemesis reaches the edge of the board, Gravehold suffers 1 damage per space traveled (minimum 1). If it hits a boulder, the nemesis takes 2 damage per space traveled. When the nemesis ends a rush, destroy each adjacent boulder. If the nemesis moves 0 spaces from a rush, destroy each boulder in its row and column. newline During a player's main phase, they may lose 2 charges to place a bait on an unoccupied space. When the nemesis moves over bait, destroy that bait. newline Instead of placing a boulder on the board, players may drop a boulder on the nemesis, dealing 2 damage to it and destroying the boulder.};\diffR{};
->>>>>>> Stashed changes
+\rules{When a player deals damage to the nemesis, prevent that damage and advance the cave-in track by a number of spaces equal to the damage done. \newline The nemesis always move orthogonally. When the nemesis rushes, if it can reach bait in a straight line, it moves toward the bait, stopping when it reaches a boulder or the edge of the board. Otherwise, the nemesis moves toward the edge of the board that's furthest away and not blocked by a boulder. If the nemesis cannot reach the edge of the board, it moves toward the closest boulder instead. \newline If the nemesis reaches the edge of the board, Gravehold suffers 1 damage per space traveled (minimum 1). If it hits a boulder, the nemesis takes 2 damage per space traveled. When the nemesis ends a rush, destroy each adjacent boulder. If the nemesis moves 0 spaces from a rush, destroy each boulder in its row and column. \newline During any player's main phase, that player may lose 2 charges to place a bait on an unoccupied space. When the nemesis moves over bait, destroy that bait. \newline Instead of placing a boulder on the board, players may drop a boulder on the nemesis, dealing 2 damage to it and destroying the boulder.};\diffR{Battle5};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Apex, the Slumbering \image{N5} \hp{80}};
+\setup{}
+\unleash{If the nemesis has 4 or fewer nemesis tokens, the nemesis gains 1 nemesis token. Otherwise, Any player or Gravehold suffers 2 damage.}
+\difficulty{}
+\rules{While the nemesis is polarized: \newline 1. When it would draw a nemesis card, it draws an additional nemesis card. \newline 2. When a player deals damage to the nemesis, increase that damage by 2. \newline \newline At the end of the nemesis turn, if the nemesis has three or more nemesis tokens it becomes polarized. At the start of the nemesis turn, if the nemesis has 0 nemesis tokens, it becomes unpolarized. \newline During any player's main phase, that player may destroy a card that costs 1 \Money or more in hand and the nemesis loses 1 nemesis token. If the destroyed card costs 4 \Money or more, the nemesis loses an additional nemesis tokens. \newline If the nemesis deck is empty, shuffle the tier 3 cards in the nemesis discard pile and place them facedown to reform the nemesis deck.};\diffR{Exp};
 \end{tikzpicture}
 
 

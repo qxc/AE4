@@ -31,80 +31,40 @@
 \pagestyle{empty}\begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Amalgamation \image{Foe1} \type{Foe}};
-\setup{Place the Broodling cards above this mat.}
-\rules{};\ability{\abilityName Call the Hive: \abilityCost{ 5}
-Put minion from personal deck into play};
-
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Time Sweeper \image{Foe2} \type{Foe}};
-\setup{}
-\rules{};\ability{\abilityName Call the Hive: \abilityCost{ 4}
-Reveal the top 3 cards, put a minion revealed this way into play. Return the rest in any order. If no minion revealed, Foe gains 3 charges.};
-
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Jeweled Wrath \image{Foe3} \type{Foe}};
-\setup{Place the Cursed Shard cards above this mat to form the Cursed Shard supply pile.}
-\rules{};\ability{\abilityName Jeweled Rot: \abilityCost{ 4}
-The player with the fewest gems in hand gains a Cursed Shard, places it into their hand, and suffers 1 damage for each gem in hand.};
-
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Glutton's Apprentice \image{Foe4} \type{Foe}};
-\setup{At the start of the game, destroy all but 1 card in any supply pile. Foe gains 2 charges.}
-\rules{If Foe would destroy a card in a supply pile and cannot, Gravehold suffers 3 damage instead.};\ability{\abilityName Bloody Conduit: \abilityCost{ 4}
-Destroy three cards in any supply pile.};
-
-\end{tikzpicture}
-
-\begin{tikzpicture} 
-\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
-\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Dalana, the Healer \image{Friend1} \type{Friend}};
+\name{Ragestorm \image{Foe1} \type{Foe}};
 \setup{No special setup.}
-\rules{};\ability{\abilityName Bandage: \abilityCost{ 6}
-Focus any player's breach. Each player gains 1 life for each opened breach they have.};
+\rules{};\ability{\abilityName Shadows Lengthen: \abilityCost{ 4}
+Any player discards three cards in hand. If the intensity is 3 or higher, discarded cards must cost 1 \Money or more. If the intensity is 5 or higher, that player suffers 4 damage.};
 
 \end{tikzpicture}
 
 \begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Sahala \image{Friend2} \type{Friend}};
-\setup{}
-\rules{};\ability{\abilityName Starlight Infusion: \abilityCost{ 4}
-Place a token on a breach that doesn't have one. Spells cast from a breach with a token deals +2 damage.};
+\name{The Amplifier \image{Friend1} \type{Friend}};
+\setup{No special setup.}
+\rules{};\ability{\abilityName Leapstart: \abilityCost{ 4}
+Any player gains a card that costs 4 \Money or less from the supply. If the intensity is 3 or higher, the gained card can cost any amount. If the intensity is 5 or higher, placed the gained card into that player's hand instead.};
 
 \end{tikzpicture}
 
 \begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Qu, the badass \image{Friend3} \type{Friend}};
-\setup{Token starts on build side}
-\rules{Token says: DESTROYER token gives +2 damage to all spells cast that turn. BUILDER token gives +1 money whenever money is gained. At end of turn, flip token and return to this mat};\ability{\abilityName DESTROY or build: \abilityCost{ 4}
-Give a player the token. };
+\name{Fallireach \image{Friend2} \type{Friend}};
+\setup{Shuffle the Designer Breach deck and place it facedown next to this.}
+\rules{The top breach of the designer breach deck is always faceup.};\ability{\abilityName Hotswap: \abilityCost{ 4}
+Any player destroys a breach, gains the top breach of the designer breach deck and may prep a spell in hand to it. newline \Or newline Any player casts a spell prepped to their designer breach twice.};
 
 \end{tikzpicture}
 
 \begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Joanna, the Merchant \image{Friend4} \type{Friend}};
-\setup{}
-\rules{};\ability{\abilityName Barter: \abilityCost{ 5}
-Shuffle any player's turn order card in the turn order discard pile into the turn order deck.};
+\name{Magmis \image{Foe2} \type{Foe}};
+\setup{Shuffle the disaster cards facedown to form the disaster deck. Place the top card of the disaster deck into play with 1 nemesis token.}
+\rules{When a disaster has 0 nemesis tokens on it, place it on the bottom of the disaster deck.};\ability{\abilityName Imminent Doom: \abilityCost{ 4}
+Place the top card of the disaster deck into play with two nemesis tokens.};
 
 \end{tikzpicture}
 
