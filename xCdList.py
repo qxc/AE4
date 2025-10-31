@@ -72,8 +72,6 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 number = 1
             if number == "":
                 continue
-            if cardType == "":
-                continue
             if row['Card Status'] == "":
                 continue
             if cardType == "Story":

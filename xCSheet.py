@@ -72,7 +72,7 @@ def processCards(fileName = "cSheet.csv"):
             abilityDescription0 = row['Ability Description']
             abilityDescription = abilityDescription0.replace("newline", "\\newline")
             abilityCost = row['Ability Cost']
-            notes = row['Notes']
+            notes = row['Notes'] + " " + row['Front rules']
             image = row['Image']
             if row['Card Status'] == "":
                 continue
