@@ -80,9 +80,6 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 card = createCard(name, cardType, cost, text,image, hp, shield, devCost, sync)
             f.write(card*int(number))
             numCards += int(number)
-    if numCards % 3 == 2:
-        card = createCard("Blank", "", "", "","", "", "", "", "")
-        f.write(card)
     f.write("\end{center}\n\end{document}")
     f.close()
     compileFile(texFile)
@@ -91,7 +88,7 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
 
 def makeHeader():
     header = "\\documentclass{article}\n\\nonstopmode\n\input{libs.tex}"
-    header +="\n\input{colors.tex}\n\input{tikzcardsTwo.tex}"
+    header +="\n\input{colors.tex}\n\input{tikzcardsTwoTTS.tex}"
     header +="\n\\begin{document}\n\\begin{center}"
     return header
 
