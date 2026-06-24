@@ -66,10 +66,8 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
                 sync = row ['Sync']
             except:
                 sync = ""
-            try:
-                number = row['supply']
-            except:
-                number = 1
+                
+            number = 1
             if number == "":
                 continue
             if row['Card Status'] == "":

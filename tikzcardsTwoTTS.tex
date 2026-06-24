@@ -5,12 +5,13 @@
 \newcommand{\Cast}{\textbf{Cast}}
 \newcommand{\Persistent}{\textbf{PERSISTENT}}
 \newcommand{\Discard}{\textbf{DISCARD}}
+\newcommand{\Defeated}{\textbf{DEFEATED}}
 \newcommand{\To}{\textbf{TO~}}
 \newcommand{\Power}{\textbf{POWER }}
 \newcommand{\Immediately}{\textbf{IMMEDIATELY}}
 \newcommand{\Evolve}{\textbf{EVOLVE}}
 \newcommand{\BloodMagic}{\textbf{Blood Magic}}
-\newcommand{\Money}{\includegraphics[height = .4cm]{money}}
+\newcommand{\Money}{\includegraphics[height = 1cm]{money}}
 \newcommand{\Or}{\textbf{OR}}
 \newcommand{\Link}{\newline\textbf{Link:} Two spells with link may be prepped to the same breach.}
 \newcommand{\Name}{\hspace{20mm}}
@@ -58,8 +59,8 @@
 
 
 \newcommand{\InvMoney}{\includegraphics[height = .6cm]{InvMoney}}
-\newcommand{\Health}{\includegraphics[height = .4cm]{heart}}
-\newcommand{\Shield}{\includegraphics[height = .6cm]{shield}}
+\newcommand{\Health}{\includegraphics[height = 1.2cm]{heart}}
+\newcommand{\Shield}{\includegraphics[height = 1.2cm]{shield}}
 
 %   Rahmen der Karte
 %\newcommand{\cardborder}{
@@ -93,12 +94,12 @@
 }
 \newcommand{\cardcontent}[1]{
     %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
-		\node[text width=.73*\cardwidth cm, below right] at (.15*\cardwidth, 0.46*\cardheight) {\Huge{#1}};
+		\node[text width=.73*\cardwidth cm, below right] at (.15*\cardwidth, 0.48*\cardheight) {\Huge{#1}};
 }
 
 \newcommand{\tier}[1]{
     %\node[text width=4.5cm] at (\cardwidth/2, 0.35*\cardheight) {#1};
-	\node at (.2*\cardwidth, .9*\cardheight) {\Large{#1}};
+	\node at (.2*\cardwidth, .9*\cardheight) {\Huge{#1}};
 }
 
 \newcommand{\delay}[1]{
@@ -117,10 +118,10 @@
 }
 
 \newcommand{\cardhp}[1]{
-		\node[left] at (\cardwidth*.93,\cardheight*.78) {\textbf{\Large #1}\Health};
+		\node[left] at (\cardwidth*.88,\cardheight*.83) {\textbf{\Huge #1}\Health};
 }
 \newcommand{\cardshield}[1]{
-		\node[left] at (\cardwidth*.3+\stripwidth*.45,\cardheight-6.2*\stripwidth) {\textbf{\LARGE #1} \Shield};
+		\node[left] at (\cardwidth*.88,\cardheight*.72) {\textbf{\Huge #1} \Shield};
 }
 
 \newcommand{\sync}[1]{
