@@ -11,19 +11,20 @@
 \newcommand{\Immediately}{\textbf{IMMEDIATELY}}
 \newcommand{\Evolve}{\textbf{EVOLVE}}
 \newcommand{\BloodMagic}{\textbf{Blood Magic}}
-\newcommand{\Money}{\includegraphics[height = .4cm]{money}}
-\newcommand{\Or}{\textbf{OR}}
+\newcommand{\Money}{\includegraphics[height = .4cm]{money} }
+\newcommand{\Or}{\textbf{OR} }
 \newcommand{\Recall}{\textbf{RECALL}}
-\newcommand{\Link}{\newline\textbf{Link:} Two spells with link may be prepped to the same breach.}
+\newcommand{\Link}{\newline\textbf{Link} }
 \newcommand{\Name}{\hspace{20mm}}
-\newcommand{\Echo}{\textbf{Echo}} %(Cast this spell without discarding it, then cast it again.)}
+\newcommand{\Echo}{\textbf{Echo} } %(Cast this spell without discarding it, then cast it again.)}
 \newcommand{\Poison}{\textbf{Poison} }%(When a poisoned enemy is dealt damage, deal 1 additional damage per poison and remove 1 poison token.) }
 \newcommand{\Overkill}{\textbf{Overkill}}%(If this kills a minion, deal the remaining damage to the nemesis.)}
 \newcommand{\Energized}{\textbf{Energized}}% If this deals more than its base damage, }
 \newcommand{\Countdown}{\textbf{Countdown}}% If this deals more than its base damage, }
 \newcommand{\Attach}{\textbf{Attach} }% If this deals more than its base damage, }
+\newcommand{\Wandering}{\textbf{Wandering} }% If this deals more than its base damage, }
 \newcommand{\Shadow}{\textbf{Shadow:}} %Place a Shadow token on a minion. Prevent all damage dealt to a minion with a shadow token. Players can reduce a shadowed minion's life by spending \Money{}.}
-%   TikZ/PGF Settings für die Karten
+%   TikZ/PGF Settings fï¿½r die Karten
 \pgfmathsetmacro{\cardwidth}{6}
 \pgfmathsetmacro{\cardheight}{8.5}
 \pgfmathsetmacro{\imagewidth}{\cardwidth}
@@ -46,13 +47,13 @@
 \def\shapeContentArea{(2*\strippadding+\stripwidth,0.5*\cardheight) rectangle (\cardwidth+0.2,-0.2)}
 
 
-%   Stylings für die Elemente definieren
+%   Stylings fï¿½r die Elemente definieren
 \tikzset{
-    %   runde Ecken für die Karten
+    %   runde Ecken fï¿½r die Karten
     cardcorners/.style={
         rounded corners=0.2cm
     },
-    %   runde Ecken für die "Fähnchen"
+    %   runde Ecken fï¿½r die "Fï¿½hnchen"
     elementcorners/.style={
         rounded corners=0.1cm
     }
