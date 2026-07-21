@@ -2,327 +2,420 @@
 \nonstopmode
 \input{libs.tex}
 \input{colors.tex}
-\input{tikzcardsTwo.tex}
+\input{tikzcardsTwoTTS.tex}
 \begin{document}
 \begin{center}\begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{N5} 
-\cardtitle{Spine Storm} 
+\cardbackground{Spell} 
+\cardimage{m1} 
+\cardtitle{Doubler} 
 \cardborder{} 
-\cardcontent{\To \Discard: Spend 6 \Money. \newline  \Power 2: Unleash twice. Destroy three cards from the least expensive supply pile.} 
+\cardcontent{While prepped once per turn, you may discard a gem in hand. If you do, give a spell that costs 1 \Money more than it \Echo until end of turn. \newline \Cast: Deal 1 damage.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Spell} 
+\cardimage{m1} 
+\cardtitle{Sparky} 
+\cardborder{} 
+\cardcontent{\Cast: Deal 1 damage.} 
 \cardprice{1} 
-\sync{0.22}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{N5} 
-\cardtitle{Corroding Radiance} 
+\cardbackground{Gem} 
+\cardimage{m10} 
+\cardtitle{Verdant Amber} 
 \cardborder{} 
-\cardcontent{Unleash twice. \newline Any player draws a card.} 
-\cardprice{1} 
-\sync{0.22}
+\cardcontent{Gain 1 charge. \newline \Or \newline Place two power tokens on a spell from the Tangled deck.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{N5} 
-\cardtitle{Tarnished} 
+\cardbackground{Spell} 
+\cardimage{m10} 
+\cardtitle{Lashing Wisteria} 
 \cardborder{} 
-\cardcontent{\Persistent: Gravehold suffers 1 damage. Any player places a card in hand on top of their deck.} 
-\cardprice{1} 
-\cardhp{3} 
-\cardshield{2} 
-\sync{0.21}
+\cardcontent{While prepped, when you or Tree opens a breach, place a power token on this. \newline \Cast: Deal 4 damage. You or Tree gain 1 life for each power token on this. If you and Tree have no closed breaches, deal 6 additional damage.} 
+\cardprice{8} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{N5} 
-\cardtitle{Memory Suffocate} 
+\cardbackground{Spell} 
+\cardimage{m10} 
+\cardtitle{Grasping Clematis} 
 \cardborder{} 
-\cardcontent{Any player places a card in hand on top of their deck. Repeat this twice. \newline Any player suffers 3 damage.} 
-\cardprice{2} 
-\sync{0.17}
+\cardcontent{While prepped, when you or Tree gains a gem, place a power token on this. \newline \Cast: Deal 2 damage. You may destroy a card in hand for each power token on this. Tree may discard a gem in hand to deal additional damage equal to its cost.} 
+\cardprice{8} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{N5} 
-\cardtitle{Memory Scar} 
+\cardbackground{Spell} 
+\cardimage{m10} 
+\cardtitle{Snarled Star Jasmine} 
 \cardborder{} 
-\cardcontent{\To \Discard: Spend 7 \Money. \newline \Power 2: Destroy the least expensive supply pile. Repeat this. Any player suffers 5 damage.} 
-\cardprice{2} 
-\sync{0.23}
+\cardcontent{While prepped, when you or Tree gains a charge, place a power token on this. \newline \Cast: Deal 4 damage. Deal 1 additional damage for each power token on this.} 
+\cardprice{8} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{N5} 
-\cardtitle{Echo} 
+\cardbackground{Spell} 
+\cardimage{m10} 
+\cardtitle{Suffocating Ivy} 
 \cardborder{} 
-\cardcontent{\Defeated: The nemesis becomes polarized and gains 1 nemesis token. \newline \Persistent: Gravehold suffers 3 damage.} 
-\cardprice{2} 
-\cardhp{7} 
-\sync{0.17}
+\cardcontent{While prepped, when you or Tree gain a relic from the supply, place a power token on this. \newline \Cast: Deal 3 damage. Focus a breach for each power token on this. Place a relic in Tree's discard pile on top of their deck.} 
+\cardprice{8} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{N5} 
-\cardtitle{Ocular Erase} 
+\cardbackground{Spell} 
+\cardimage{m10} 
+\cardtitle{Constricting Honeysuckle} 
 \cardborder{} 
-\cardcontent{The players collectively destroy three cards in hand that cost 1 \Money or more. Gravehold suffers 5 damage.} 
+\cardcontent{While prepped, when you or Tree destroy a card, place a power token on this. \newline \Cast: Deal 4 damage. Gain a charge for each power token on this. Tree draws a card for each power token on this.} 
+\cardprice{8} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Spell} 
+\cardimage{m10} 
+\cardtitle{Choking Bougainvillea} 
+\cardborder{} 
+\cardcontent{While prepped, when you or Tree suffer damage, place a power token on this. \newline \Cast: Deal 4 damage. You and Tree each gain a \Money token for each power token on this. Silence a minion.} 
+\cardprice{8} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m11} 
+\cardtitle{Ashen Residue} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money. \newline \Or \newline Any ally may destroy a card in hand.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m11} 
+\cardtitle{Crisped Sapphire} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money. \newline \Or \newline Any ally gains 1 charge.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m13} 
+\cardtitle{Transient Amethyst} 
+\cardborder{} 
+\cardcontent{Destroy this. If you do, reveal the top three cards of Skulna's Safe. Place one into your hand and the rest on the bottom of that deck.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m13} 
+\cardtitle{Dezmodia's Oblivion Shard} 
+\cardborder{} 
+\cardcontent{Gain 2 \Money{} that cannot be used to gain a relic or spell.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m13} 
+\cardtitle{Mist's Garnet Shard} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money{}. \newline \Or \newline Cast any player's prepped spell.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Spell} 
+\cardimage{m13} 
+\cardtitle{Brama's Buried Light} 
+\cardborder{} 
+\cardcontent{\Cast: Deal 1 damage. Gain 1 \Money{}.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Spell} 
+\cardimage{m13} 
+\cardtitle{Xaxos's Flare} 
+\cardborder{} 
+\cardcontent{\Cast: Reveal the top card of the turn order deck, and then place it back on top of the turn order deck. If you revealed a player turn order card, deal 3 damage. Otherwise, deal 1 damage.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m13} 
+\cardtitle{Thraxir's Nameless Siphon} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money. \newline \Or \newline Any ally may discard a card in hand. If they do, focus one of your breaches.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m13} 
+\cardtitle{Ulgimor's Coal Fragment} 
+\cardborder{} 
+\cardcontent{Gain 2 \Money{} and suffer 1 damage. \newline \Or \newline Gain 1 life.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Spell} 
+\cardimage{m13} 
+\cardtitle{Claudia's Kaleidoscope} 
+\cardborder{} 
+\cardcontent{\Cast: Deal 1 damage. \newline You may return a gem from your discard pile to your hand.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m2} 
+\cardtitle{Shape} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money. When you gain a card that costs 4 \Money or more, gain 2 knowledge.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Spell} 
+\cardimage{m2} 
+\cardtitle{Royal Sword} 
+\cardborder{} 
+\cardcontent{\Cast: Deal 1 damage. \newline \Or \newline \Cast: Deal damage equal to the number of knowledge tokens you have. Lose 1 knowledge.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m3} 
+\cardtitle{The Dagger} 
+\cardborder{} 
+\cardcontent{At the start of your casting phase, deal 1 damage. \newline Defeated: Return this to the titlebearer deck.} 
+\cardprice{0} 
+\cardhp{1} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m3} 
+\cardtitle{Crystal Keeper} 
+\cardborder{} 
+\cardcontent{At the start of your main phase, gain 1 \Money. \newline Defeated: Return this to the titlebearer deck.} 
+\cardprice{0} 
+\cardhp{1} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m3} 
+\cardtitle{The Shield} 
+\cardborder{} 
+\cardcontent{\small {You may prep an additional spell to your III breach.} \newline \small {When a player would suffer damage, you suffer that damage instead.} \newline \small {Defeated: Return this to the titlebearer deck.}} 
+\cardprice{0} 
+\cardhp{1} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m3} 
+\cardtitle{Treasure Hunter} 
+\cardborder{} 
+\cardcontent{\Immediately: Gain a card that costs 5 \Money or less from the supply. \newline Defeated: Return this to the titlebearer deck.} 
+\cardprice{0} 
+\cardhp{1} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m3} 
+\cardtitle{Heraldric Diamond} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money. \newline \Or \newline If you have no titlebearers in play, gain a charge.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Gem} 
+\cardimage{m4} 
+\cardtitle{Overchargium} 
+\cardborder{} 
+\cardcontent{Gain 1 \Money. You may place the top card of the Hoard deck on the bottom. \newline \Or \newline Gain 2 \Money that can only be used to overcharge cards from the Hoard deck.} 
+\cardprice{0} 
+\sync{0.27}
+\end{tikzpicture}
+\hspace{-4mm}
+\begin{tikzpicture} 
+\cardbackground{Relic} 
+\cardimage{m4} 
+\cardtitle{Hushed Sigil} 
+\cardborder{} 
+\cardcontent{Cast any player's prepped spell. Silence each minion damaged by that spell.} 
 \cardprice{3} 
-\sync{0.17}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{N5} 
-\cardtitle{Eternal} 
+\cardbackground{Relic} 
+\cardimage{m4} 
+\cardtitle{Blazing Idol} 
 \cardborder{} 
-\cardcontent{While this is in play, the nemesis is polarized. \newline \Persistent: Gravehold suffers 3 damage. Any player gains a charge.} 
-\cardprice{3} 
-\cardhp{10} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{N5} 
-\cardtitle{Overcharge} 
-\cardborder{} 
-\cardcontent{Any player suffers 7 damage and then gains 4 charges.} 
-\cardprice{3} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Rattle} 
-\cardborder{} 
-\cardcontent{Any player suffers 4 damage. \newline \Or \newline Unleash. Gravehold suffers damage equal to the intensity.  } 
+\cardcontent{Discard or destroy a card in hand. If you do, deal damage equal to its cost.} 
 \cardprice{1} 
-\sync{0.18}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Churn} 
+\cardbackground{Relic} 
+\cardimage{m4} 
+\cardtitle{Energized Rod} 
 \cardborder{} 
-\cardcontent{Unleash. \newline If the Intensity is 4 or higher, any player suffers 4 damage and discards two cards in hand. Otherwise, Any player suffers 2 damage and discards a card in hand.} 
+\cardcontent{Focus any player's breach. \newline If that player has a prepped spell that costs 5 \Money or more, that player gains 1 charge.} 
 \cardprice{1} 
-\sync{0.21}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Mayhem} 
+\cardbackground{Relic} 
+\cardimage{m4} 
+\cardtitle{Moonseal} 
 \cardborder{} 
-\cardcontent{Unleash twice. Adjust the intensity by up to 2. \newline \Or \newline Any player and Gravehold each suffer 2 damage.} 
-\cardprice{1} 
-\sync{0.18}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{general} 
-\cardtitle{Vexthorn} 
-\cardborder{} 
-\cardcontent{\Persistent: If the intensity is 4 or higher, Gravehold suffers 3 damage. Otherwise, any player suffers 2 damage} 
-\cardprice{1} 
-\cardhp{3} 
-\cardshield{2} 
-\sync{0.18}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{general} 
-\cardtitle{Harrowfang} 
-\cardborder{} 
-\cardcontent{\Persistent: Unleash. If the intensity is 4 or higher, Unleash and reduce the Intensity by 1.} 
-\cardprice{1} 
-\cardhp{5} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Doom Plume} 
-\cardborder{} 
-\cardcontent{\To \Discard: Spend 6 \Money{}. \newline \Power 4: Unleash twice. Gravehold suffers 2 damage.} 
-\cardprice{1} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Raucous Tune} 
-\cardborder{} 
-\cardcontent{\To \Discard: Spend 5 \Money. \newline \Power 2: Unleash. The players collectively discard cards in hand equal to the intensity.} 
-\cardprice{1} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Shadowburst} 
-\cardborder{} 
-\cardcontent{\To \Discard: Spend 6 \Money{}. \newline \Power 3: Unleash. If the intensity is 4 or higher, Unleash two additional times.} 
-\cardprice{1} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Decay} 
-\cardborder{} 
-\cardcontent{Unleash twice. \newline If the intensity is 5 or higher, any player suffers 4 damage. Otherwise, any player or Gravehold suffers 2 damage.} 
+\cardcontent{Any ally may prep a spell in their discard pile to their opened or closed breach(es).} 
 \cardprice{2} 
-\sync{0.22}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Sonic Crash} 
+\cardbackground{Relic} 
+\cardimage{m4} 
+\cardtitle{Dream Ember} 
 \cardborder{} 
-\cardcontent{If the intensity is 5 or higher, Gravehold suffers 7 damage. Otherwise, Any player discards two cards in hand and suffers 3 damage.} 
+\cardcontent{Any player destroys the top card of their discard pile. A different player destroys the top card of their discard pile.} 
 \cardprice{2} 
-\sync{0.21}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Mutilate} 
+\cardbackground{Relic} 
+\cardimage{m4} 
+\cardtitle{Boundless Mind} 
 \cardborder{} 
-\cardcontent{Unleash twice. \newline The players collectively discard two prepped spells that cost 0 \Money. \newline If the intensity is 5 or higher, any player suffers 4 damage.} 
+\cardcontent{Any ally draws a card and gains 1 \Money token.} 
 \cardprice{2} 
-\sync{0.21}
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{general} 
-\cardtitle{Obilax} 
+\cardbackground{Gem} 
+\cardimage{m5} 
+\cardtitle{Memory's Kiss} 
 \cardborder{} 
-\cardcontent{\Immediately: If the intensity is 5 or higher, this gains 2 shield tokens. \newline \Persistent: Any player suffers 2 damage.} 
-\cardprice{2} 
-\cardhp{7} 
-\cardshield{*} 
-\sync{0.23}
+\cardcontent{\Recall: Deal 1 damage. \newline Gain 1 \Money. } 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{general} 
-\cardtitle{Nethermaw} 
+\cardbackground{Spell} 
+\cardimage{m5} 
+\cardtitle{Memory's Gift} 
 \cardborder{} 
-\cardcontent{\Defeated: If the intensity is 4 or higher, Unleash twice. \Persistent: Gravehold suffers 2 damage.} 
-\cardprice{2} 
-\cardhp{9} 
-\sync{0.21}
+\cardcontent{\Recall: Gain 1 \Money. \newline \Cast: Deal 1 damage.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Umbralspike} 
+\cardbackground{Gem} 
+\cardimage{m6} 
+\cardtitle{Celestial Seize} 
 \cardborder{} 
-\cardcontent{\To \Discard: Spend 7 \Money{}. \newline \Power 2: Unleash twice and reduce the intensity by 2. If the intensity is 3 or higher, repeat this.} 
-\cardprice{2} 
-\sync{0.21}
+\cardcontent{Gain 1 \Money. If you gained a gem this turn, Align.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Toxic Surge} 
+\cardbackground{Spell} 
+\cardimage{m6} 
+\cardtitle{Exert} 
 \cardborder{} 
-\cardcontent{\To \Discard: Discard four cards in hand. \newline \Power 2: Unleash twice. The players discard each prepped spell that has cost equal to or less than the intensity.} 
-\cardprice{2} 
-\sync{0.21}
+\cardcontent{After this spell is cast, Diverge. \newline \Cast: If you're aligned: Deal 3 damage. \newline \Or \newline Gain 1 charge and 1 \Money. \newline \Or \newline Focus any player's breach. Otherwise, deal 0 damage.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Eliminate} 
+\cardbackground{Gem} 
+\cardimage{m7} 
+\cardtitle{Laserite} 
 \cardborder{} 
-\cardcontent{If the intensity is 5, choose and resolve two of the following. Otherwise, resolve one: \newline Unleash twice. \newline \Or \newline Gravehold suffers 5 damage. \newline \Or \newline Any player suffers 4 damage. } 
-\cardprice{3} 
-\sync{0.21}
+\cardcontent{Gain 1 \Money. Gain an additional 1 \Money for each pair of odd and even gems played this turn.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Disperse} 
+\cardbackground{Gem} 
+\cardimage{m7} 
+\cardtitle{Recurinite} 
 \cardborder{} 
-\cardcontent{Unleash twice. \newline Any player destroys their most expensive card in hand. If the intensity is 5 or higher, Gravehold suffers 4 damage.} 
-\cardprice{3} 
-\sync{0.21}
+\cardcontent{Gain 1 \Money. You may place this on top of your deck.} 
+\cardprice{1} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Topple} 
+\cardbackground{Gem} 
+\cardimage{m8} 
+\cardtitle{Sky Geode} 
 \cardborder{} 
-\cardcontent{Unleash twice. \newline Gravehold suffers 2 damage. If the intensity is 5 or higher, Unleash and the player with the most charges loses all of their charges.} 
-\cardprice{3} 
-\sync{0.21}
+\cardcontent{Gain 1 \Money. \newline \Or \newline Prep a spell to your IV breach, even if it's closed. \newline \Or \newline Cast a spell prepped to your IV breach.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \begin{tikzpicture} 
-\cardbackground{Attack} 
-\cardimage{general} 
-\cardtitle{Flesh Crunch} 
+\cardbackground{Spell} 
+\cardimage{m9} 
+\cardtitle{Aether Ray} 
 \cardborder{} 
-\cardcontent{Unleash twice. \newline The player with the most expensive card in hand destroys two cards in hand. If the intensity is 4 or higher, that player suffers 3 damage.} 
-\cardprice{3} 
-\sync{0.21}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Minion} 
-\cardimage{general} 
-\cardtitle{Harbinger of Doom} 
-\cardborder{} 
-\cardcontent{\Persistent: If the intensity is 4 or higher, Gravehold suffers damage equal to the intensity. Otherwise, Unleash twice.} 
-\cardprice{3} 
-\cardhp{11} 
-\sync{0.17}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Arcane Collapse} 
-\cardborder{} 
-\cardcontent{\To \Discard: Destroy an opened breach. If the intensity is 4 or higher, destroy an additional opened breach and your two most expensive cards in hand. \newline \Power 1: Unleash three times.} 
-\cardprice{3} 
-\sync{0.18}
-\end{tikzpicture}
-\hspace{-4mm}
-\begin{tikzpicture} 
-\cardbackground{Power} 
-\cardimage{general} 
-\cardtitle{Curled Jaw} 
-\cardborder{} 
-\cardcontent{\Power 2: Unleash. The player with the most expensive prepped spell destroys it. If that spell costs less than the intensity, Unleash and any player suffers 3 damage.} 
-\cardprice{3} 
-\sync{0.17}
+\cardcontent{While prepped, the first time you play a gem this turn you may prevent the \Money that card would gain and deal that much damage instead. \newline \Cast: Deal 1 damage.} 
+\cardprice{0} 
+\sync{0.27}
 \end{tikzpicture}
 \hspace{-4mm}
 \end{center}

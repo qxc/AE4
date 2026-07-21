@@ -14,8 +14,8 @@
 \newcommand{\cardborder}{\draw[black] \shapeCard;
 \draw[ultra thick] (\cardwidth/2, \cardheight/2) rectangle (0, \cardheight);}
 \newcommand{\name}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight-\offset*2) {\LARGE{#1}};}
-\newcommand{\setup}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.87) {\large \textbf{Setup:} #1};}
-\newcommand{\unleash}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.67) {\large \textbf{Unleash:} #1};}
+\newcommand{\setup}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.80) {\large \textbf{Setup:} #1};}
+\newcommand{\unleash}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.64) {\large \textbf{Unleash:} #1};}
 \newcommand{\difficulty}[1]{\node[text width = \tw] at (\cardwidth/4, \cardheight*.20) {\textbf{Additional Difficulty Rules:} #1};}
 \newcommand{\rules}[1]{\node at (\cardwidth*.7, \cardheight/2+10) ; \node[text width = 7 cm] at (\cardwidth*3/4, \cardheight/2+2) {\large \textbf{Rules:} #1};}
 \newcommand{\image}[1]{\includegraphics[height = .8cm]{#1}}
@@ -26,11 +26,41 @@
 \pagestyle{empty}\begin{tikzpicture} 
 \draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
 \draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
-\name{Diamdeath \image{N4} \hp{60}};
-\setup{Add an additional supply piles of Blighted Diamonds next to this and shuffle it. Place the Diamdeath track next to this. When playing with 1/2/3/4 mages, the players collectively gain 1/2/3/3 Blighted Diamonds, where no player gets more than 1. Place the Blight Spread power into play.}
-\unleash{Move the Diamdeath token forward one space on the Diamdeath Track.}
+\name{Neural Coup \image{N2} \hp{99}};
+\setup{Place Aether Titan and Mage Eater minions next to this. Place 1 nemesis token on Mage Eater. Place 2 aether tokens on Aether Titan. Place the Giant Brawl power into play.}
+\unleash{If Mage Eater has 10 or more health, place a nemesis token on it. Otherwise, it gains 3 health.}
 \difficulty{}
-\rules{When Blighted Diamond is destroyed, place it on the bottom of its supply pile. \newline When a player would gain a Blighted Diamond and that supply pile is empty, advance the Blighted Track. \newline If there is an \Money token on the track when the Diamdeath token would move, instead remove that token. When the Blighted Track is moved onto a space with an effect listed on it, resolve that effect. };\diffR{5};
+\rules{To resolve Colossal combat: If Mage Eater has 1 life, it gains 4 life. Otherwise, it deals damage to Aether Titan equal to the number of nemesis tokens on it. Then, Aether Titan deals damage equal to the number of aether tokens on it to Mage Eater. When a player gains a card, Aether Titan gains 1 \Money token. \newline When a player uses their ability, Aether Titan gains health equal to the number of charges lost. When a player deals damage to Mage Eater, reduce that damage to 1.};\diffR{5};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Shellkill \image{N3} \hp{80}};
+\setup{The supply must contain at least four spells. Place a card from four different spell supply piles next to this. Then, place a card from the least expensive spell supply pile next to this. Place these cards in ascending order with the least expensive on top. This forms the weakness deck and the the top card is always revealed. Place the Shellkill track next to this.}
+\unleash{Move 1 space forward on the track.}
+\difficulty{}
+\rules{When a player deals damage to the nemesis by casting a spell that matches the top card of the weakness deck, that spell deals 2 additional damage, move the nemesis back one space on the Shellkill track, and place the top card of the weakness deck on the bottom. \newline During any player's casting or main phase that player may lose 1 charge to place the top card of the weakness deck on the bottom. When the nemesis moves onto a space on the track without a nemesis token on it, resolve that effect and place a nemesis token on that space.};\diffR{5};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Sunless Sovereign \image{N5} \hp{70}};
+\setup{Place the Sunless Sovereign track next to this. Place a drill on the first space of each track.}
+\unleash{Gravehold suffers 2 damage for each diamantium in play. The nemesis gains 1 nemesis token. If the nemesis has 3 or more nemesis tokens and there are fewer than three diamantium on the track, place a diamantium into play and the nemesis loses three nemesis tokens.}
+\difficulty{}
+\rules{When a player deals damage to the nemesis besides with a drill, prevent that damage. Each drill is a minion with infinite health. When a player deals damage to a drill, if that instance of damage is at least 1/2/4 for the left/middle/right chutes, it moves down 1 space. When a drill moves down off the chute, resolve the text at the end of that chute. When diamantium is placed, place it directly below the drill that's closest to the nemesis. If that drill is on the last space of the track, move that drill up 1 space and place the diamantium where it was. Diamantium is a minion with 5 health. Drills cannot move past or enter a space where diamantium is. There can be at most 1 diamantium per column.};\diffR{5};
+\end{tikzpicture}
+
+\begin{tikzpicture} 
+\draw[black] \shapeCard; \newline\newcommand{\Or}{\textbf{OR}};
+\draw[ultra thick] (\cardwidth/2, \cardheight*.56) rectangle (0, \cardheight); 
+\name{Shadowbeast \image{N7} \hp{99}};
+\setup{Shuffle all the threat cards together except for one threat 5 card and place them facedown to form the threat deck. Place the Sunshotgun cards next to this. This is not a supply pile. Unleash.}
+\unleash{Draw a card from the threat deck.}
+\difficulty{}
+\rules{The threat is equal to the sum of the threat cards in play. If the total threat is 10 or higher, the nemesis pounces immediately. \newline Once on any player's turn, that player may scavenge or distract the nemesis, but not both. When a player scavenges, draw a card from the threat deck up to three times. After each draw, if the nemesis didn't pounce, the player may stop scavenging and gain one reward based on the number of cards drawn from the threat deck that turn. When a player distracts the nemesis, that player loses 1 charge to discard a threat card from play. \newline 1: Focus one of their breaches. \newline 2: Gain a card that costs 4 \Money or less from the supply. \newline 3: Gain a Sunshotgun. \newline When the nemesis pounces, discard each threat card in play, shuffle the threat discard pile and deck together and place it facedown to form the threat deck. When the nemesis pounces during a player's turn, that player suffers 5 damage, gains no reward, and cannot draw additional cards from the threat deck that turn. Otherwise, Gravehold suffers 7 damage. \newline When the threat deck is empty, shuffle the threat discard pile and place it facedown to form the threat deck.};\diffR{5};
 \end{tikzpicture}
 
 

@@ -15,6 +15,7 @@
 \newcommand{\Or}{\textbf{OR}}
 \newcommand{\Link}{\newline\textbf{Link:} Two spells with link may be prepped to the same breach.}
 \newcommand{\Name}{\hspace{20mm}}
+\newcommand{\Recall}{\textbf{RECALL}}
 \newcommand{\Echo}{\textbf{Echo}} %(Cast this spell without discarding it, then cast it again.)}
 \newcommand{\Poison}{\textbf{Poison} }%(When a poisoned enemy is dealt damage, deal 1 additional damage per poison and remove 1 poison token.) }
 \newcommand{\Overkill}{\textbf{Overkill}}%(If this kills a minion, deal the remaining damage to the nemesis.)}
@@ -115,6 +116,10 @@
 		%\pgfmathsetmacro{\greenvalue}{255-(85*\x*\x)}
 		%\pgfmathsetmacro{\bluevalue}{255*(1-\x)*(1-\x)}
 		\node at (.2*\cardwidth,.9*\cardheight) {\color{black} \textbf{\Huge #1}}; %change black to currentcolor to get gradient back
+}
+
+\newcommand{\carddevcost}[1]{
+		\node at (\cardwidth*.88,\cardheight-1.1*\stripwidth) {\color{black} \textbf{\small (#1)}};
 }
 
 \newcommand{\cardhp}[1]{

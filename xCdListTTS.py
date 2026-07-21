@@ -46,10 +46,11 @@ def processCards(baseFile = "ZXcList", fileName = "cdList.csv"):
             cardType = row['type'].capitalize()
             image = row['Image']
             originalText = row['description']
-            text1 = replaceText(originalText, "@__")
+            text1 = originalText.replace("@__", "\\newline")
             text2 = replaceText(text1, "A@")
             text3 = text2.replace(" newline", " \\newline")
             text = text3
+
             try:
                 hp = row['HP']
             except:

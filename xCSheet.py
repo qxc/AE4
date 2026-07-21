@@ -4,7 +4,7 @@ import subprocess
 from PyPDF2 import PdfWriter, PdfReader
 
 
-def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image):
+def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image, sync):
     code = "\\begin{tikzpicture} \n\cardborder \n\\basicinfo \n"
     code += "\\name{" + name + "}{" + image + "}\n"
     code += "\\ability{" + abilityName+ ": "
@@ -13,6 +13,7 @@ def createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescri
     code += "\startingDeck{" + deck[0] + "}{" + deck[1] + "}{" + deck[2] + "}{" + deck[3] + "}{" + deck[4] + "}\n"
     code += "\startingHand{" + hand[0] + "}{" + hand[1] + "}{" + hand[2] + "}{" + hand[3] + "}{" + hand[4] + "}\n"
     code += "\\notes{" + notes + "}\n"
+    code += "\sync{" + sync + "}\n"
     #print(breaches)
     #1 = D, L = 4, R = 2, U = 3, X = 0, O = 5
     #6 = SD, 7 = SL, 8 = SR, 9 = SU, 10 = SO
@@ -69,14 +70,15 @@ def processCards(fileName = "cSheet.csv"):
             breaches.append(row['B4'])
             breaches = processBreaches(breaches)
             abilityName = row['Ability Name']
-            abilityDescription0 = row['Ability Description']
-            abilityDescription = abilityDescription0.replace("newline", "\\newline")
+            abilityDescription = row['Ability Description']
+            #abilityDescription = abilityDescription0.replace("newline", "\\newline")
             abilityCost = row['Ability Cost']
             notes = row['Notes'] + " " + row['Front rules']
             image = row['Image']
+            sync = row['Sync']
             if row['Card Status'] == "":
                 continue
-            char = createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image)
+            char = createChar(name, hand, deck, breaches, startCard, abilityName, abilityDescription, abilityCost, notes, image, sync)
             makePDF(name,char)
             pdfName = "charSheet" + name + ".pdf"
             pdfFiles.append(pdfName)

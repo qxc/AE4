@@ -8,6 +8,8 @@ def createCard(name, cardType, cost, text, image,hp, shield, devCost, sync):
     code += "\cardtitle{" + name+ "} \n"
     code += "\cardborder{} \n"
     code += "\cardcontent{" + text + "} \n"
+    if "\Recall" in text:
+        code += "\\recallIcon{} \n"
     code += "\cardprice{" + str(cost) + "} \n"
     if devCost != "":
         code += "\carddevcost{" + devCost + "} \n"
